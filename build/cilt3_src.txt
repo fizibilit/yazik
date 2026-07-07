@@ -1,0 +1,148 @@
+# Cilt 3 (2022) — Sayı 25–36
+# Format: sayi|pdf_page|yazar|baslik|tur
+
+# --- Sayi 1 (Ocak) ---
+1|2|Kemal Tahir|Yorgun Savaşçı (alıntı)|diger
+1|3|Tarkan Başer|Dervişin Biri|siir
+1|4|Bariş Silik|Garip Yazılar|oyku
+1|6|Metah Çakko|Kardeşlerim!|deneme
+1|7|Emel Bulut|Arzu|deneme
+1|9|Fatma Betül Özbudak|h|siir
+1|10|Heybet Akdoğan|Ellerimle Kazıyorum Toprağın Bahtını|siir
+1|11|İbrahim Daştan|Elma|siir
+1|12|İlkay Coşkun|Bildiğimiz Şeyler Üzüyor Bizi|siir
+1|13|Melike Nur İnci|Ne Güzel Şey Sevmek Seni|siir
+1|14|Mustafa Ali Öztürk|Söyleşi: Deniz Erbulak|deneme
+1|27|Bekir Sıtkı Erdoğan|Marya|siir
+
+# --- Sayi 2 (Şubat) ---
+2|2|Haruki Murakami|Sınırın Güneyinde Güneşin Batısında (alıntı)|diger
+2|3|Tarkan Başer|Misal Dervişin Biri|siir
+2|4|M. Ahmet Özyapıcı|Merhaba|deneme
+2|6|Hasan Fahri Tan|İlk Vukuatımı Bir Sapanla İşledim|siir
+2|7|İzzet Koçak|Uzun Süre Ekonomi Okudum|siir
+2|8|Murat Koçak|Üç Ayaklı Doru Bir Küheylanım Vardı|siir
+2|9|Emel Bulut|En İyi İnsan Bilir|deneme
+2|10|Fatma Betül Özbudak|İçtikçe Susatan|siir
+2|11|Züleyha Korkmaz|Abim|oyku
+2|13|Ahmet Can Aydın|Bir Kaşıntı Var Ne Zamandır|siir
+2|14|İbrahim Daştan|Bir Yaş Daha Aktı|siir
+2|15|İlkay Coşkun|Düşe Kalka Öz İzi|siir
+2|16|Rıdvan Yıldız|Hareri Öğrenen Bir Çığlık|siir
+2|17|Canberk Beker|1. Yazarken Aklıma Geldi|siir
+2|19|Adil Başoğul|Düşünün Ki|siir
+2|22|Deniz Sarıtop|Biri Açlıktan Ölüyorsa|siir
+2|23|Mustafa Ali Öztürk|Roman Yorumu|deneme
+2|26|Fatih Kanter|Yankısız Ses|oyku
+
+# --- Sayi 3 (Mart) ---
+3|2|İlhan Berk|Güz (alıntı)|diger
+3|3|Tarkan Başer|İçimde Kaldı|siir
+3|4|Emel Topkaya|Her Yaralı Mazlum Değil|oyku
+3|8|Hasan Fahri Tan|İllüzyon|siir
+3|9|Hayalî Yazar|Mevsim: Bahar|siir
+3|10|Fatma Betül Özbudak|Gök Moncuk|siir
+3|11|Canberk Beker|2. İlk Yanak Alegorisi|siir
+3|14|İbrahim Daştan|Salgın|siir
+3|15|Cemal Karsavran|Hak Aşkına Pir Aşkına|siir
+3|16|Adil Başoğul|Meçhul Destan|siir
+3|18|Mustafa Ali Öztürk|Edebiyat: Kelimeleri Yaşatan Bir Evren|deneme
+3|21|İlkay Coşkun|Topraktan Ayrılalı|siir
+3|24|Muhyiddin Abdal|İnsan İnsan Derler İdi (alıntı)|diger
+
+# --- Sayi 4 (Nisan) ---
+4|2|Ahmet Koçak|Küskün|siir
+4|3|Muhammed Hüküm|Soysuz Çağın İçimde|siir
+4|4|Ali Yağız|"Hepimiz Ölecek Yaştayız"|oyku
+4|6|Hasan Fahri Tan|Ölümsel Şiir|siir
+4|7|Tarkan Başer|Yılan Dengede|siir
+4|8|Hayalî Yazar|Mevsim: Yaz|siir
+4|9|Canberk Beker|3. Sıcak Hava, Sanrı ve Sartre; Jean Paul Olan|siir
+4|11|İbrahim Daştan|Altı Berceste|siir
+4|12|Pelin Yıldırım|Geçmiş|oyku
+4|15|Vildan Poyraz Coşkun|Azizim|siir
+4|16|Mustafa Ali Öztürk|Söyleşi: Seçkin Güneş|deneme
+4|22|İlkay Coşkun|Gecenin Yelesi|siir
+4|25|Ali Genç|Söyleşi: Bülent Parlak|deneme
+
+# --- Sayi 5 (Mayıs) ---
+5|2|Yılmaz Karakoyunlu|Yorgun Mayıs Kısrakları (alıntı)|diger
+5|3|Ali Genç|Mûtû Mûtû|oyku
+5|7|Tarkan Başer|Bir|siir
+5|8|Ali Nesin|İlerlemeye Bir Dur Desek|deneme
+5|10|Canberk Beker|6. Ceyhun'un 2|siir
+5|12|Hayalî Yazar|Mevsim: Güz|siir
+5|13|Vildan Poyraz Coşkun|Birkaç Cümle|siir
+5|14|Cemal Karsavran|Sen Kıskanacaksın|siir
+5|16|Deniz Sarıtop|Arkeologların Bilmediklerini Konuşuyorum|siir
+5|17|Şemseddin Sivasi|Gazel (alıntı)|diger
+
+# --- Sayi 6 (Haziran) ---
+6|2|Ali Serdar Gençoğlu|Aykırı Edebiyat - Sayı 1|deneme
+6|3|Hatem Akkoç|Güzel|siir
+6|4|İzzet Koçak|Kalbinin Sesini Dinle|siir
+6|5|Tarkan Başer|Yangın Var|siir
+6|6|Emel Topkaya|Dünya Anne Eli Değmiş Gibi Olsun|oyku
+6|10|Hasan Fahri Tan|Düş/Sel|siir
+6|11|Hayalî Yazar|Mevsim: Kış|siir
+6|12|Murat Koçak|Gün Gelir...|siir
+6|13|Canberk Beker|Schrödinger ile Metafizik Üzerine Olmayan Şiir|siir
+6|14|Cahit Koytak|Nuh'a Gemi Resimleri|siir
+
+# --- Sayi 7 (Temmuz) ---
+7|4|Anonim|Geriye Kalan (halk şiiri)|diger
+7|5|Tarkan Başer|Dul Karı Pazarı|oyku
+7|11|Kadir Polat|Perde|oyku
+7|13|Anonim|Mutluluğun Kokusu|oyku
+7|16|Anonim|Sri Lanka'da Bir Yaz Gecesi|siir
+7|17|Anonim|Küçükken Bana Çok Güldüler|siir
+7|18|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar I|deneme
+
+# --- Sayi 8 (Ağustos) ---
+8|2|Attila İlhan|Bıçağın Ucu (alıntı)|diger
+8|3|Hatem Akkoç|Olmaz|siir
+8|5|Kadir Polat|Kavanozdaki Bahar|oyku
+8|9|Mecit Bahadır Koşar|Hüzün|oyku
+8|12|Tarkan Başer|Değişken|siir
+8|14|Hayalî Yazar|Mevsim: İm|siir
+8|16|İbrahim Daştan|Darbe|siir
+8|18|Canberk Beker|Özgürlüğe Kavuşan Futbol Topumun Hayatını Bana Anlat|siir
+8|22|Cemal Karsavran|Biliyorum Vuslat Sonum|siir
+8|24|Hasan Fahri Tan|Eylül|siir
+
+# --- Sayi 9 (Eylül) ---
+9|2|Kemal Tahir|Devlet Ana (alıntı)|diger
+9|3|Tarkan Başer|Sıradan|siir
+9|5|Anonim|Hep Sonradan|siir
+9|7|Kadir Polat|Vınn Nnn...|oyku
+9|11|Hayalî Yazar|Mevsim: İz|siir
+9|13|Canberk Beker|Yeraltından Şiir|siir
+9|18|Cemal Karsavran|Gün Sana|siir
+
+# --- Sayi 10 (Ekim) ---
+10|2|Ivo Andriç|Drina Köprüsü (alıntı)|diger
+10|3|Necati Kanter|Yoldayım|oyku
+10|13|Anonim|Gök Boncuk|siir
+10|14|Anonim|Kaymakam|oyku
+10|17|Anonim|Her Akşam Yağanlar|siir
+10|18|Hayalî Yazar|Mevsim: Dört Mevsim|siir
+10|23|Anonim|Musa ile Rıfkı|oyku
+10|27|Anonim|Lalezarda Bayram Eder|siir
+
+# --- Sayi 11 (Kasım) ---
+11|3|Fatih Kanter|Sözlerin Kuyusu|siir
+11|5|Muhammed Hüküm|Bahçenin Zaferi|siir
+11|7|Tarkan Başer|Pi Ne Kare|siir
+11|9|Ali Genç|Koşu Bittikten Sonra Da...|siir
+11|10|Mustafa Ali Öztürk|Şair İlhami Çiçek Üzerine|deneme
+11|15|Hatem Akkoç|Yanmasam|siir
+11|17|Canberk Beker|Böcekle Mülakat|oyku
+11|22|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar II|deneme
+11|28|Mustafa Ali Öztürk|Durgun Don Üzerine|deneme
+
+# --- Sayi 12 (Aralık) ---
+12|2|Anonim|Kendini Aramak|deneme
+12|3|Tarkan Başer|Kahvem Var Benim|oyku
+12|9|Anonim|Göçe / Beni Rahat / Önüm Arkam|siir
+12|22|Kadir Polat|Zöhre de Yok Artık|oyku
+12|24|Muhammed Hüküm|Dağın İzi|siir

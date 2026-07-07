@@ -1,0 +1,184 @@
+{
+  "dergi": {
+    "baslik": "YAZIK - Süreli Edebiyat Dergisi",
+    "aciklama": "Bağımsız edebiyat dergisi. Öykü, şiir, deneme, söyleşi.",
+    "kurulis_yili": 2020,
+    "toplam_cilt": 4,
+    "toplam_sayi": 48
+  },
+  "ciltler": [
+    {
+      "cilt_no": 1,
+      "yil": 2020,
+      "toplam_sayi": 12,
+      "sayilar": [
+        {
+          "sayi_no": 1,
+          "cilt": 1,
+          "ay": "Ocak",
+          "yil": 2020,
+          "baslik": "Sayı 1 - Ocak 2020",
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi01_Ocak2020.pdf",
+          "yazılar": [
+            {
+              "no": 1,
+              "yazar": "Tengir KARA",
+              "baslik": "(Şiir)",
+              "kategori": "ŞİİR",
+              "sayfalar": "4-5"
+            },
+            {
+              "no": 2,
+              "yazar": "Ali GENÇ",
+              "baslik": "Parasız Yatılı Günlüğünden",
+              "kategori": "EDEBİYAT",
+              "sayfalar": "6-8"
+            },
+            {
+              "no": 3,
+              "yazar": "Alemmm Adam MY",
+              "baslik": "Tuhafiye Dükkani",
+              "kategori": "EDEBİYAT",
+              "sayfalar": "9-12"
+            },
+            {
+              "no": 4,
+              "yazar": "Kadir POLAT",
+              "baslik": "Kendi Düşen de Ağlar",
+              "kategori": "EDEBİYAT",
+              "sayfalar": "13-15"
+            },
+            {
+              "no": 5,
+              "yazar": "M. Fatih KANTER",
+              "baslik": "Kabil Kompleksi",
+              "kategori": "EDEBİYAT",
+              "sayfalar": "18-22"
+            },
+            {
+              "no": 6,
+              "yazar": "Ali GENÇ",
+              "baslik": "Öyle Olur Bazen",
+              "kategori": "EDEBİYAT",
+              "sayfalar": "23-25"
+            },
+            {
+              "no": 7,
+              "yazar": "Erol KAF",
+              "baslik": "Mola Yeri Hikâyeleri",
+              "kategori": "EDEBİYAT",
+              "sayfalar": "26-27"
+            }
+          ]
+        },
+        {
+          "sayi_no": 2,
+          "cilt": 1,
+          "ay": "Şubat",
+          "yil": 2020,
+          "baslik": "Sayı 2 - Şubat 2020",
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi02_Şubat2020.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 3,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi03.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 4,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi04.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 5,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi05.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 6,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi06.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 7,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi07.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 8,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi08.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 9,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi09.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 10,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi10.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 11,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi11.pdf",
+          "yazılar": []
+        },
+        {
+          "sayi_no": 12,
+          "cilt": 1,
+          "ay": "",
+          "yil": 2020,
+          "pdf_dosyasi": "YAZIK_Cilt1_Sayi12.pdf",
+          "yazılar": []
+        }
+      ]
+    },
+    {
+      "cilt_no": 2,
+      "yil": 2021,
+      "toplam_sayi": 12,
+      "sayilar": []
+    },
+    {
+      "cilt_no": 3,
+      "yil": 2022,
+      "toplam_sayi": 12,
+      "sayilar": []
+    },
+    {
+      "cilt_no": 4,
+      "yil": 2023,
+      "toplam_sayi": 12,
+      "sayilar": []
+    }
+  ]
+}

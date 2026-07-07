@@ -1,0 +1,117 @@
+1|2|Haldun Taner|On İkiye Bir Var|diger
+1|3|Tarkan Başer|Kelebek Yetkisi|oyku
+1|5|Ali Genç|Yeniden|siir
+1|6|Hatem Akkoç|Beni Siz Uçurdunuz!|deneme
+1|11|M. Fatih Kanter|Aldanma|siir
+1|12|Mülayim Meddah|Başkalarının Rızkına Mani Olmayalım|deneme
+1|13|Yasemin Akça|Senin Dünyanda Saat Kaç?|deneme
+1|15|Mustafa Doğan Karaçoşkun|Umde|siir
+1|16|Muhammed Hüküm|Gurbet|siir
+1|19|Cemal Karsavran|Yetirdin de Ne Götürdün Mehmet Ağa|siir
+1|20|Âlem Adam MY|Nikâh Masası|deneme
+1|22|Ahmet Rıfat İlhan|Delik Manifesto|siir
+1|23|Semih Güney|Defterim|siir
+3|2|Erdem Bayazıt|Şehrin Ölümü|diger
+3|3|Zekeriya Genç|Kara Yazı|siir
+3|4|Tarkan Başer|Tahta Valiz|oyku
+3|7|Ali Genç|Söyle Ona|oyku
+3|9|Hasan Fahri Tan|Maral|siir
+3|10|M. Ahmet Özyapıcı|Yurdum İnsanına Mektubu|deneme
+3|11|Naz Farisi|Can-Gir Dünya|siir
+3|12|Semih Güney|Keşke|siir
+3|13|Cemal Karsavran|Endişe Korkular ve Umut|siir
+3|14|Hatem Akkoç|Ey Yarenler|siir
+4|2|Abdurrahim Karakoç|Anadolu'da Bahar|diger
+4|3|Hatem Akkoç|Kim Aldı|siir
+4|4|Tarkan Başer|Usul Usul|siir
+4|5|Mülayim Meddah|Çok Anasının Gözü Bu Karabaş|deneme
+4|9|Zeynep Bakmaz|Bırak Gelsin Her Şer|siir
+4|10|Sude Yenin|Nühüfte|deneme
+4|12|Semih Güney|Bir Dua|siir
+4|13|Mustafa Ali Öztürk|Özgür Atlar Daha Mutlu|deneme
+4|15|Cemal Karsavran|Kaç Veda Yeniden Merhaba|siir
+4|16|Deniz Sarıtop|Gazap Toplumu|siir
+4|17|Furkan Karaçoşkun|Erken Gelen Güz|siir
+5|2|John Maxwell Coetzee|Utanç|diger
+5|3|Ali Genç|Bazen|deneme
+5|4|Hatem Akkoç|İşte|siir
+5|5|Tarkan Başer|Ömer'i Unutmak|oyku
+5|9|Adil Başoğul|İç Ses...|siir
+5|10|Mülayim Meddah|Karabaş'tan Güncel Politik Gözlemler|deneme
+5|13|Mustafa Doğan Karaçoşkun|Issız Şiir|siir
+5|14|Cemal Karsavran|Oynuyorsun Çingenem|siir
+5|15|Zeynep Bıçakçıoğlu|Hatanın Güzel Hâli Tecrübe|deneme
+6|2|Necati Cumalı|Uzak Haziran|diger
+6|3|Ali Genç|Hoş Geldin|oyku
+6|5|Murat Serdar Çakıroğlu|Çırpınıp İçinde Döndüğüm Deniz|siir
+6|6|Mustafa Doğan Karaçoşkun|Sen Gidince|siir
+6|8|Tarkan Başer|Yarı Yarı|siir
+6|9|Mülayim Meddah|Karabaş'ın Politika Güncesi|deneme
+6|12|Cemal Karsavran|Söyle Kaç Mutluluk Döner Başımda|siir
+6|13|Aşık Veysel|Çırpınıp İçinde Döndüğüm Deniz|diger
+7|2|Kurt Vonnegut|Otomatik Piyano|diger
+7|3|Kadir Polat|Albümdeki Kırmızı Gözler|oyku
+7|5|Bilge Çipe|Kitap Mezarlığı|siir
+7|6|Ali Genç|Zil, Şal ve Gül|oyku
+7|8|Muhammed Hüküm|Dağın İzi|siir
+7|9|Murat Serdar Çakıroğlu|Sessizme Ayrılıklardan Bir Gömlek Diktim|siir
+7|10|Ahmet Gönenç|Kendi Kendine|oyku
+7|11|M. Fatih Kanter|Her Şey Emanet|siir
+7|12|Mustafa Doğan Karaçoşkun|Gelen|siir
+7|13|Zeynep Bıçakçıoğlu|Tek Tip İnsan Figürü|deneme
+7|15|Mustafa Ali Öztürk|Günümüz Şairlerine|deneme
+7|17|Cemal Karsavran|Yürekte Kilitli Anahtar Ellerde|siir
+7|18|Mülayim Meddah|Neredeyse Çalışmaya Başlayacaktım|deneme
+8|2|Turgut Uyar|(Şiir)|diger
+8|3|Ali Genç|Etek Sarı|oyku
+8|5|Bilge Çipe|Ukuzamazama Komhlaba|siir
+8|6|Kadir Polat|Nurhayat|oyku
+8|8|Muhammed Hüküm|Leyla'ya Şiirler|siir
+8|10|İzzet Koçak|Balık Hafızası|siir
+8|11|Murat Koçak|Ben Kendimin Darağacıyım|siir
+8|13|Fatih Kanter|Büyük Göç|siir
+8|14|Ahmet Gönenç|Gri Kasketli Adam|oyku
+8|16|Mustafa Doğan Karaçoşkun|Ay Parçam|siir
+8|17|Mustafa Ali Öztürk|Orhan Veli "Bütün Yazıları" Kitabı Üzerine|deneme
+8|20|Cemal Karsavran|Adrenalin Esiriyiz|siir
+8|21|Tarkan Başer|Lazım|siir
+9|2|Yahya Kemal Beyatlı|Eylül Sonu|diger
+9|3|Ali Genç|Âdem Baba|oyku
+9|5|Hatem Akkoç|Şiir, Şair, İnsan, Falan|siir
+9|6|Mehmet Özcan|Kapı Arkası Gurbet|oyku
+9|8|M. Fatih Kanter|Söz Temsil|siir
+9|9|Ahmet Gönenç|Dut'a Tutunmak|deneme
+9|10|Bilge Çipe|Biz|siir
+9|11|Mecit Bahadır Koşar|Şiiri Çıkmıştı Dünyanın|deneme
+9|12|Mustafa Doğan Karaçoşkun|Şehir Beni Çağırır|siir
+9|13|Yağmur Çelik|Arin|siir
+9|14|Murat Serdar Çakıroğlu|Deli Lirik|siir
+9|15|Mülayim Meddah|Adını Siz Koyun|deneme
+9|18|Cemal Karsavran|Düşte ve Hayallerde|siir
+10|2|Haruki Murakami|Yaban Koyununun İzinde|diger
+10|4|Ali Genç|Hanzala|oyku
+10|7|Ahmet Gönenç|Gri Kasketli Adam|oyku
+10|10|M. Fatih Kanter|Çalınan Hikâye|siir
+10|12|Mustafa Doğan Karaçoşkun|Taşlama|siir
+10|14|Mülayim Meddah|Hâlden Anlayan Bulunuyor|oyku
+10|20|Semih Güney|Düşler Gecesinde Leyla|siir
+10|22|Cemal Karsavran|Hepsi Candan Fazlası|siir
+10|24|Hüseyin Yıldız|Elli Yaş Rüyası|siir
+11|2|Edward W. Said|Şarkiyatçılık|diger
+11|3|Tarkan Başer|Gizlin|siir
+11|5|M. Fatih Kanter|Kırık Düğme|siir
+11|7|Muhammed Hüküm|Nehirden Denize Kadar|siir
+11|9|Ahmet Gönenç|Lâl|oyku
+11|13|Ahmet Yılmaz Tuncer|Yanıyoruz|siir
+11|16|Muzaffer Yurttaş|Bir Şifa Kaynağı Olarak Edebiyat|deneme
+11|21|Mülayim Meddah|Psikolojiye Giriş|deneme
+12|2|Kurt Vonnegut|Mezbaha Beş veya Çocukların Haçlı Seferi Ölüme Ödenen Bir Dans Borcu|diger
+12|3|Tarkan Başer|Köprüden Önce Son Çıkış|oyku
+12|10|Semih Güney|Gelincik ve Kelebek|siir
+12|12|Mustafa Ali Öztürk|"Öyle Bir Zaman Gelir ki Vazgeçmek En Güzeli Olur"|deneme
+12|16|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar|deneme
+12|20|Cemal Karsavran|Kaç Ömür Yeniden Doğuyorum|siir
+12|22|Murat Serdar Çakıroğlu|Bungun|siir
+12|25|Mustafa Doğan Karaçoşkun|Taş, Ay ve Kaldırım|siir
+12|26|Ahmet Gönenç|Kışla Gelen|oyku
+12|29|Ali Kestane|Bir Damla|siir

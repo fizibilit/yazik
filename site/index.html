@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAZIK DERGİSİ — Süreli Edebiyat Dergisi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EFE6;--paper-2:#EBE3D5;--ink:#16202E;--ink-soft:#2C3A4D;--accent:#D98A2B;--accent-deep:#7A1E2B;--muted:#6B6256;--line:#D7CCBA;--display:"Fraunces",Georgia,serif;--read:"Newsreader",Georgia,serif;--util:"Space Grotesk",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--read);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none;cursor:pointer}
+.page{display:none}.page.active{display:block}
+.topbar{border-bottom:1px solid var(--line);font-family:var(--util);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;position:sticky;top:0;background:var(--paper);z-index:100}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:18px}
+.topbar .logo{font-weight:600;color:var(--accent-deep);font-size:15px;letter-spacing:.12em}
+.topbar nav{display:flex;gap:22px;flex-wrap:wrap}
+.topbar nav a{color:var(--ink-soft);transition:color .2s}
+.topbar nav a:hover,.topbar nav a.on{color:var(--accent-deep)}
+.masthead{padding:48px 0 26px;text-align:center;border-bottom:2px solid var(--ink)}
+.masthead .eyebrow{font-family:var(--util);font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:16px}
+.masthead h1{font-family:var(--display);font-weight:900;font-size:clamp(64px,15vw,150px);line-height:.82;letter-spacing:-.02em;margin-bottom:12px;cursor:pointer}
+.masthead .sub{font-family:var(--util);font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.masthead .tag{font-family:var(--display);font-style:italic;font-size:clamp(15px,2.4vw,20px);color:var(--ink-soft);margin-top:16px}
+/* hero slider */
+.hero-slider{position:relative;min-height:clamp(260px,38vw,400px)}
+.hero-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .9s ease,visibility .9s;cursor:pointer}
+.hero-slide.on{opacity:1;visibility:visible;pointer-events:auto;z-index:1}
+.masthead img.hero-medcezir{height:clamp(72px,16vw,190px);width:auto;max-width:96%;transform:rotate(-4deg);margin:4px 0 10px;display:block}
+.sub-medcezir{letter-spacing:.34em!important;color:var(--medcez)!important}
+.hero-moon{width:clamp(92px,13vw,150px);height:auto;aspect-ratio:1;margin-bottom:clamp(-104px,-8.5vw,-62px);position:relative;z-index:1;display:block;object-fit:contain;pointer-events:none}
+.masthead h1.hero-sinir{font-family:var(--display);font-weight:900;font-size:clamp(44px,9.5vw,96px);line-height:.95;letter-spacing:-.01em;color:var(--sinir)}
+.eyebrow-sinir{color:var(--sinir)!important}
+.hero-dots{display:flex;gap:10px;justify-content:center;padding:18px 0 2px}
+.hero-dot{width:9px;height:9px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .25s}
+.hero-dot:hover{background:var(--dc)}
+.hero-dot.on{background:var(--dc);transform:scale(1.25)}
+.sec-title{font-family:var(--display);font-size:34px;font-weight:600;margin:46px 0 6px}
+.sec-sub{font-family:var(--util);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+/* issue grid */
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:10px 0 0}
+.cilt-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:0 0 10px;border-bottom:2px solid var(--ink);margin:56px 0 0}
+.cilt-header:first-child{margin-top:8px}
+.ch-label{display:block;font-family:var(--util);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.ch-stat{font-family:var(--util);font-size:12px;color:var(--muted)}
+.ch-year{font-family:var(--display);font-size:46px;font-weight:900;letter-spacing:-.02em;line-height:1;color:var(--ink);flex-shrink:0}
+.icard{background:var(--paper);transition:background .2s;display:flex;flex-direction:column;cursor:pointer;overflow:hidden}
+.icard:hover{background:var(--paper-2)}
+.icard .icover{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--paper-2);transition:transform .35s ease}
+.icard:hover .icover{transform:scale(1.05)}
+.icard .iinfo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.icard .n{font-family:var(--display);font-weight:900;font-size:36px;line-height:1}
+.icard .m{font-family:var(--util);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+.icard .c{font-family:var(--util);font-size:11px;color:var(--muted);margin-top:auto}
+/* reader */
+.reader{display:grid;grid-template-columns:300px 1fr;gap:0;min-height:80vh}
+.contents{border-right:1px solid var(--line);padding:30px 24px 60px;position:sticky;top:52px;height:calc(100vh - 52px);overflow:auto}
+.contents h3{font-family:var(--display);font-size:24px;margin-bottom:4px}
+.contents .meta{font-family:var(--util);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.toc-item{padding:9px 0;border-top:1px solid var(--line);cursor:pointer}
+.toc-item:hover .tt{color:var(--accent-deep)}
+.toc-item .ta{font-family:var(--util);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.toc-item .tt{font-family:var(--display);font-size:17px;line-height:1.2}
+.toc-item .tp{font-family:var(--util);font-size:10.5px;color:var(--accent);float:right}
+.tag-tur{display:inline-block;font-family:var(--util);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-top:3px}
+.viewer{padding:24px 28px 60px;text-align:center}
+.vbar{display:flex;align-items:center;justify-content:center;gap:18px;font-family:var(--util);font-size:13px;margin-bottom:18px;flex-wrap:wrap}
+.vbar button{font-family:var(--util);font-size:13px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:7px 16px;border-radius:3px;cursor:pointer;transition:all .15s}
+.vbar button:hover:not(:disabled){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.vbar button:disabled{opacity:.35;cursor:default}
+.vbar .pc{color:var(--muted)}
+.pageimg{max-width:100%;width:760px;box-shadow:0 4px 24px rgba(20,32,46,.14);background:#fff;border:1px solid var(--line)}
+.pagetext{max-width:680px;width:100%;margin:26px auto 0;text-align:left;font-family:var(--read);font-size:17px;line-height:1.7;white-space:pre-wrap;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:26px 30px;color:var(--ink)}
+.pagetext .tx-empty{color:var(--muted);font-family:var(--util);font-size:13px}
+.back-link{font-family:var(--util);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);display:inline-block;margin:30px 0 0}
+/* authors */
+.alist{column-count:3;column-gap:34px;margin:14px 0 60px}
+.arow{break-inside:avoid;padding:7px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;cursor:pointer}
+.arow:hover .an{color:var(--accent-deep)}
+.arow .an{font-family:var(--display);font-size:18px}
+.arow .ac{font-family:var(--util);font-size:12px;color:var(--muted)}
+.works{margin:10px 0 60px}
+.work{padding:14px 0;border-top:1px solid var(--line);display:flex;gap:18px;align-items:baseline;cursor:pointer}
+.work:hover .wt{color:var(--accent-deep)}
+.work .wi{font-family:var(--util);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);min-width:120px}
+.work .wi-sinir{color:#0D6B52}
+.work .wt{font-family:var(--display);font-size:21px}
+.work .wtur{font-family:var(--util);font-size:10px;text-transform:uppercase;color:var(--muted);margin-left:8px}
+.edboard{margin-top:24px;padding-top:16px;border-top:1px solid var(--line)}
+.edrow{display:flex;gap:8px;padding:2px 0;line-height:1.4}
+.edrow .erol{font-family:var(--util);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:90px;padding-top:2px}
+.edrow .ead{font-family:var(--read);font-size:13px;color:var(--ink)}
+/* search */
+.searchbox{width:100%;font-family:var(--read);font-size:20px;padding:14px 4px;border:none;border-bottom:2px solid var(--ink);background:transparent;margin:20px 0 6px;outline:none}
+.searchbox::placeholder{color:var(--muted)}
+.shint{font-family:var(--util);font-size:12px;color:var(--muted);margin-bottom:26px}
+footer{padding:50px 0 64px;border-top:2px solid var(--ink);margin-top:56px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px}
+footer .fname{font-family:var(--display);font-weight:900;font-size:30px}
+footer .fcol{font-family:var(--util);font-size:12.5px;color:var(--muted);line-height:2}
+footer .fcol b{display:block;color:var(--ink);text-transform:uppercase;letter-spacing:.14em;font-size:11px;margin-bottom:6px}
+.note{background:var(--accent);color:var(--paper);padding:13px;text-align:center;font-family:var(--util);font-size:12.5px;letter-spacing:.04em}
+@media(max-width:980px){.igrid{grid-template-columns:repeat(3,1fr)}.alist{column-count:2}.reader{grid-template-columns:1fr}.contents{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line)}}
+@media(max-width:700px){.igrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.igrid{grid-template-columns:repeat(2,1fr)}.alist{column-count:1}.work .wi{min-width:auto;display:block}}
+/* intro overlay */
+#intro-overlay{position:fixed;inset:0;z-index:9999;background:#000;transition:opacity .8s ease}
+#intro-overlay.fade-out{opacity:0;pointer-events:none}
+#intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#intro-controls{position:absolute;bottom:28px;right:28px;display:flex;gap:10px;z-index:4}
+#intro-controls button{font-family:var(--util);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:8px 18px;border-radius:3px;cursor:pointer;backdrop-filter:blur(6px);transition:background .2s}
+#intro-controls button:hover{background:rgba(255,255,255,.22)}
+body.intro-active{overflow:hidden}
+/* dergi rafı */
+:root{--sinir:#0D6B52;--medcez:#8A2E18}
+.shelf-outer{margin:36px 0 0;border-top:1px solid var(--line)}
+.shelf-scroll{overflow-x:auto;scrollbar-width:none}
+.shelf-scroll::-webkit-scrollbar{display:none}
+.shelf-rail{display:flex;gap:3px;align-items:flex-end;min-width:max-content;padding:0 28px}
+.shelf-board{height:13px;background:linear-gradient(180deg,#A37848 0%,#6C4E28 100%);box-shadow:0 3px 10px rgba(0,0,0,.13)}
+.spine{border-radius:2px 2px 0 0;cursor:pointer;transition:transform .2s ease,opacity .25s;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.spine:hover{transform:translateY(-8px)}
+.spine span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--util);font-size:8px;font-weight:600;color:rgba(255,255,255,.7);white-space:nowrap;letter-spacing:.04em;user-select:none;pointer-events:none}
+.shelf-mag-bar{display:flex;padding:10px 26px 0;gap:0}
+.shelf-mag-tab{font-family:var(--util);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:7px 15px;border-bottom:3px solid transparent;border-radius:4px 4px 0 0;transition:all .2s}
+.shelf-mag-tab[data-mag="yazik"]{color:#C87B20;border-bottom-color:#C87B20}
+.shelf-mag-tab[data-mag="sinirdakiler"]{color:#0D6B52;border-bottom-color:#0D6B52}
+.shelf-mag-tab[data-mag="medcezir"]{color:#8A2E18;border-bottom-color:#8A2E18}
+.shelf-mag-tab[data-mag="yazik"]:hover,.shelf-mag-tab.on[data-mag="yazik"]{background:#C87B20;color:#fff}
+.shelf-mag-tab[data-mag="sinirdakiler"]:hover,.shelf-mag-tab.on[data-mag="sinirdakiler"]{background:#0D6B52;color:#fff}
+.shelf-mag-tab[data-mag="medcezir"]:hover,.shelf-mag-tab.on[data-mag="medcezir"]{background:#8A2E18;color:#fff}
+.shelf-hd-tab{margin-left:14px;color:#111;border-bottom-color:#111}
+.shelf-hd-tab:hover{background:#111;color:#fff}
+/* eski sayılar (pdf indirme) */
+.dl-mag-bar{display:flex;gap:8px;border-bottom:1px solid var(--line);margin:0 0 8px;padding-bottom:0}
+.dl-mag-tab{font-family:var(--util);font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:11px 22px;border-bottom:3px solid transparent;margin-bottom:-1px;border-radius:4px 4px 0 0;transition:all .2s}
+.dl-mag-tab[data-mag="yazik"]{color:var(--accent);border-bottom-color:var(--accent)}
+.dl-mag-tab[data-mag="sinir"]{color:var(--sinir);border-bottom-color:var(--sinir)}
+.dl-mag-tab[data-mag="medcezir"]{color:var(--medcez);border-bottom-color:var(--medcez)}
+.dl-mag-tab[data-mag="yazik"]:hover,.dl-mag-tab.on[data-mag="yazik"]{background:var(--accent);color:#fff}
+.dl-mag-tab[data-mag="sinir"]:hover,.dl-mag-tab.on[data-mag="sinir"]{background:var(--sinir);color:#fff}
+.dl-mag-tab[data-mag="medcezir"]:hover,.dl-mag-tab.on[data-mag="medcezir"]{background:var(--medcez);color:#fff}
+.dl-ozel{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--accent-deep);color:var(--paper);padding:26px 30px;margin:6px 0 10px;border-radius:4px;transition:filter .2s}
+.dl-ozel:hover{filter:brightness(1.12)}
+.dl-ozel .dt{font-family:var(--display);font-weight:900;font-size:clamp(22px,3.5vw,32px);line-height:1.1}
+.dl-ozel .dd{font-family:var(--util);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:6px}
+.dl-ozel .dico{flex-shrink:0;width:52px;height:52px;border:1.5px solid rgba(244,239,230,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
+.dl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:10px 0 0}
+.dl-card{background:var(--paper);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .2s}
+.dl-card:hover{background:var(--paper-2)}
+.dl-card .dm{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.1}
+.dl-card .dy{font-family:var(--util);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.dl-card .dico{flex-shrink:0;width:36px;height:36px;border:1.5px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--muted);transition:all .2s}
+.dl-card:hover .dico{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.dl-note{font-family:var(--util);font-size:12px;color:var(--muted);margin:26px 0 60px}
+/* HD — Hak Dili / Hal Dili sergi */
+.hd-stage{position:relative;overflow:hidden;background:#0B0F16;padding:44px 0 40px;margin-bottom:8px}
+.hd-stage-bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(46px) brightness(.42) saturate(1.15);opacity:.65;transform:scale(1.15);transition:background-image .6s}
+.hd-stage-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(11,15,22,.25),rgba(11,15,22,.9))}
+.hd-stage-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.hd-kicker{font-family:var(--util);font-size:11px;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:#E8C77E;margin-bottom:20px}
+.hd-spot{position:relative;width:min(340px,72vw);aspect-ratio:2/3;border-radius:4px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.6),0 0 0 1px rgba(232,199,126,.18)}
+.hd-spot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
+.hd-spot img.on{opacity:1}
+.hd-stage-ctrl{display:flex;align-items:center;gap:16px;margin-top:24px}
+.hd-stage-ctrl button{font-family:var(--util);font-size:14px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(232,199,126,.35);background:rgba(255,255,255,.06);color:#F4EFE6;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.hd-stage-ctrl button:hover{background:#E8C77E;color:#0B0F16;border-color:#E8C77E}
+.hd-count{font-family:var(--util);font-size:12px;letter-spacing:.1em;color:#B9B2A2;min-width:70px;text-align:center}
+.hd-wall-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.hd-wall{display:flex;gap:12px;align-items:flex-start;margin:20px 0 24px}
+.hd-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
+.hd-tile{position:relative;border-radius:3px;overflow:hidden;cursor:pointer;background:var(--paper-2);opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s;content-visibility:auto;contain-intrinsic-size:auto 340px}
+.hd-tile.seen{opacity:1;transform:none}
+.hd-tile img{width:100%;display:block;transition:transform .4s ease}
+.hd-tile:hover{box-shadow:0 12px 30px rgba(20,32,46,.28)}
+.hd-tile:hover img{transform:scale(1.05)}
+.hd-tile .hd-tile-date{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 9px;font-family:var(--util);font-size:10.5px;letter-spacing:.05em;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.78));opacity:0;transition:opacity .25s}
+.hd-tile:hover .hd-tile-date{opacity:1}
+/* HD lightbox */
+.hd-lb{position:fixed;inset:0;z-index:9998;background:rgba(6,9,14,.94);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center}
+.hd-lb.on{display:flex}
+.hd-lb-inner{display:flex;flex-direction:column;align-items:center;gap:14px;max-width:92vw;max-height:92vh}
+.hd-lb-inner img{max-width:min(560px,88vw);max-height:80vh;object-fit:contain;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.hd-lb-cap{display:flex;align-items:center;gap:20px;font-family:var(--util);font-size:12.5px;color:#D9D3C6}
+.hd-lb-cap a{color:#E8C77E;border-bottom:1px solid rgba(232,199,126,.4)}
+.hd-lb-close{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer;z-index:2;transition:all .2s}
+.hd-lb-close:hover{background:#fff;color:#0B0F16}
+.hd-lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;font-size:20px;cursor:pointer;transition:all .2s}
+.hd-lb-nav:hover{background:#E8C77E;color:#0B0F16;border-color:#E8C77E}
+.hd-lb-prev{left:24px}.hd-lb-next{right:24px}
+@media(max-width:600px){.hd-lb-nav{width:42px;height:42px}.hd-lb-prev{left:8px}.hd-lb-next{right:8px}}
+/* video */
+.vidgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:10px 0 60px}
+.vidcard{display:flex;flex-direction:column;gap:10px}
+.vidcard .vframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);background:var(--paper-2);display:block}
+.vfacade{position:relative;padding:0;cursor:pointer;background-size:cover;background-position:center;overflow:hidden;transition:filter .2s}
+.vfacade:hover{filter:brightness(1.05)}
+.vfacade .vplay{position:absolute;inset:0;margin:auto;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;background:rgba(122,30,43,.86);border-radius:50%;padding-left:4px;transition:transform .2s,background .2s}
+.vfacade:hover .vplay{transform:scale(1.1);background:var(--accent-deep)}
+.vidcard .vt{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.25}
+.vidcard .vd{font-family:var(--util);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vid-empty{font-family:var(--util);font-size:13px;color:var(--muted);border:1px dashed var(--line);border-radius:4px;padding:34px;text-align:center;margin:10px 0 60px}
+@media(max-width:980px){.vidgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.vidgrid{grid-template-columns:1fr}}
+@media(max-width:980px){.dl-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.dl-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body class="intro-active">
+<div id="intro-overlay">
+  <video id="intro-video" autoplay muted playsinline src="intro.mp4"></video>
+<div id="intro-controls">
+    <button id="intro-sound">🔇 Ses</button>
+    <button id="intro-skip">Geç →</button>
+  </div>
+</div>
+<div class="topbar"><div class="wrap">
+<a class="logo" data-nav="home">YAZ!K</a>
+<nav>
+<a data-nav="home">Ana Sayfa</a>
+<a data-nav="archive">Arşiv</a>
+<a data-nav="eskisayilar">Eski Sayılar</a>
+<a data-nav="video">Video</a>
+<a data-nav="authors">Yazarlar</a>
+<a data-nav="search">Ara</a>
+</nav>
+</div></div>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <header class="masthead"><div class="wrap">
+    <div id="hero-slider" class="hero-slider">
+      <div class="hero-slide on" data-mag="yazik">
+        <div class="eyebrow">Edebiyat · Öykü · Şiir · Deneme</div>
+        <h1>YAZ!K</h1>
+        <div class="sub">S Ü R E L İ &nbsp; D E R G İ</div>
+        <div class="tag">Söylenmemiş her şeye dair.</div>
+      </div>
+      <div class="hero-slide" data-mag="medcezir">
+        <img class="hero-moon" src="medcezir-moon.png" alt="" width="90" height="90">
+        <img class="hero-medcezir" src="medcezir-logo.svg" alt="Med cezir" width="512" height="123">
+        <div class="sub sub-medcezir">Fikir ve Edebiyat Dergisi</div>
+      </div>
+      <div class="hero-slide" data-mag="sinirdakiler">
+        <div class="eyebrow eyebrow-sinir">Edebiyat · 2014–2015</div>
+        <h1 class="hero-sinir">Sınırdakiler</h1>
+        <div class="tag">Ne yemen biraz öncemiz, ne biraz sonramız meksika.</div>
+      </div>
+    </div>
+    <div id="hero-dots" class="hero-dots">
+      <span class="hero-dot on" data-i="0" style="--dc:#D98A2B"></span>
+      <span class="hero-dot" data-i="1" style="--dc:#8A2E18"></span>
+      <span class="hero-dot" data-i="2" style="--dc:#0D6B52"></span>
+    </div>
+  </div></header>
+  <div class="shelf-outer">
+    <div class="shelf-scroll"><div id="shelf-rail" class="shelf-rail"></div></div>
+    <div class="shelf-board"></div>
+    <div id="shelf-mag-bar" class="shelf-mag-bar"></div>
+  </div>
+  <div class="wrap">
+    <div class="sec-title" id="home-title">Yazık Dergisi</div>
+    <div class="sec-sub" id="home-sub">Cilt 5 · 2024 · sayıya tıklayıp okumaya başlayın</div>
+    <div id="home-grid"></div>
+  </div>
+</div>
+
+<!-- ARCHIVE -->
+<div id="page-archive" class="page">
+  <div class="wrap">
+    <div class="sec-title">Arşiv</div>
+    <div class="sec-sub">Cilt 1–5 · 2020–2024 · 51 sayı · 713 yazı</div>
+    <div id="archive-grid"></div>
+  </div>
+</div>
+
+<!-- READER -->
+<div id="page-reader" class="page">
+  <div class="reader">
+    <aside class="contents">
+      <a class="back-link" data-nav="home">← Sayılar</a>
+      <h3 id="r-title" style="margin-top:18px"></h3>
+      <div class="meta" id="r-meta"></div>
+      <div id="r-toc"></div>
+      <div id="r-edboard"></div>
+    </aside>
+    <section class="viewer">
+      <div class="vbar">
+        <button id="r-prev">← Önceki</button>
+        <span class="pc" id="r-pc"></span>
+        <button id="r-next">Sonraki →</button>
+      </div>
+      <img class="pageimg" id="r-img" alt="sayfa">
+      <div class="pagetext" id="r-text" style="display:none"></div>
+      <div><a class="back-link" data-nav="home">← Tüm sayılara dön</a></div>
+    </section>
+  </div>
+</div>
+
+<!-- ESKİ SAYILAR (PDF İNDİRME) -->
+<div id="page-eskisayilar" class="page">
+  <div class="wrap">
+    <div class="sec-title">Eski Sayılar</div>
+    <div class="sec-sub" id="dl-sub">Orijinal sayıları PDF olarak indirin</div>
+    <div class="dl-mag-bar" id="dl-mag-bar">
+      <span class="dl-mag-tab on" data-mag="yazik">YAZ!K</span>
+      <span class="dl-mag-tab" data-mag="sinir">Sınırdakiler</span>
+      <span class="dl-mag-tab" data-mag="medcezir">Medcezir</span>
+    </div>
+    <div id="dl-list"></div>
+    <div class="dl-note">Tüm sayılar PDF biçimindedir; bağlantıya tıklayınca indirme başlar.</div>
+  </div>
+</div>
+
+<!-- HD — HAK DİLİ / HAL DİLİ -->
+<div id="page-hd" class="page">
+  <section class="hd-stage">
+    <div class="hd-stage-bg" id="hd-stage-bg"></div>
+    <div class="hd-stage-inner">
+      <div class="hd-kicker">HAK DİLİ / HAL DİLİ</div>
+      <div class="hd-spot" id="hd-spot"></div>
+      <div class="hd-stage-ctrl">
+        <button id="hd-prev" aria-label="Önceki">←</button>
+        <span class="hd-count" id="hd-count"></span>
+        <button id="hd-play" aria-label="Oynat/Durdur">❚❚</button>
+        <button id="hd-next" aria-label="Sonraki">→</button>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="hd-wall-head">
+      <div>
+        <div class="sec-title" style="margin:34px 0 4px">HD Duvarı</div>
+        <div class="sec-sub" id="hd-sub" style="margin-bottom:0"></div>
+      </div>
+    </div>
+    <div id="hd-wall" class="hd-wall"></div>
+    <div id="hd-sentinel" style="height:40px"></div>
+  </div>
+</div>
+
+<!-- HD LIGHTBOX -->
+<div id="hd-lb" class="hd-lb" aria-hidden="true">
+  <button class="hd-lb-close" id="hd-lb-close" aria-label="Kapat">✕</button>
+  <button class="hd-lb-nav hd-lb-prev" id="hd-lb-prev" aria-label="Önceki">←</button>
+  <button class="hd-lb-nav hd-lb-next" id="hd-lb-next" aria-label="Sonraki">→</button>
+  <div class="hd-lb-inner">
+    <img id="hd-lb-img" alt="HD görsel">
+    <div class="hd-lb-cap">
+      <span id="hd-lb-date"></span>
+      <a id="hd-lb-link" target="_blank" rel="noopener">X'te aç ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div id="page-video" class="page">
+  <div class="wrap">
+    <div class="sec-title">Video</div>
+    <div class="sec-sub" id="video-sub">Söyleşiler · Okumalar · Dergi Tanıtımları</div>
+    <div id="video-grid" class="vidgrid"></div>
+  </div>
+</div>
+
+<!-- AUTHORS -->
+<div id="page-authors" class="page">
+  <div class="wrap">
+    <div class="sec-title">Yazarlar</div>
+    <div class="sec-sub" id="auth-count"></div>
+    <div id="authors-list" class="alist"></div>
+  </div>
+</div>
+
+<!-- AUTHOR DETAIL -->
+<div id="page-author" class="page">
+  <div class="wrap">
+    <a class="back-link" data-nav="authors">← Yazarlar</a>
+    <div class="sec-title" id="ad-name" style="margin-top:16px"></div>
+    <div class="sec-sub" id="ad-count"></div>
+    <div id="ad-works" class="works"></div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div id="page-search" class="page">
+  <div class="wrap">
+    <div class="sec-title">Ara</div>
+    <input class="searchbox" id="search-input" placeholder="Yazar veya başlık ara…" autocomplete="off">
+    <div class="shint">Yazar adı veya yazı başlığına göre canlı arama.</div>
+    <div id="search-results" class="works"></div>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div><div class="fname" id="f-name">YAZ!K</div><p class="fcol" id="f-desc" style="margin-top:8px;max-width:32ch"></p></div>
+  <div class="fcol"><b>Gezin</b><a data-nav="home">Ana Sayfa</a><br><a data-nav="archive">Arşiv</a><br><a data-nav="eskisayilar">Eski Sayılar</a><br><a data-nav="video">Video</a><br><a data-nav="authors">Yazarlar</a><br><a data-nav="search">Ara</a></div>
+  <div class="fcol" id="f-kunye"><b>Künye</b></div>
+</div></footer>
+
+<script src="data/data.js"></script>
+<script src="data/sinirdakiler_data.js"></script>
+<script src="data/medcezir_data.js"></script>
+<script src="data/hd_data.js"></script>
+<script>
+// Admin panelinden localStorage'a yazılan değişiklikleri uygula
+function applyAdminEdits(){
+  try{const d=localStorage.getItem('admin_yazik');if(d)Object.assign(window.YAZIK_DATA,JSON.parse(d));}catch(e){}
+  try{
+    const d=localStorage.getItem('admin_sinir');
+    if(d){
+      const stored=JSON.parse(d);
+      // Dosyadan gelen editoryal'i, eski localStorage kaydı ezmişse geri ekle
+      if(stored.sayilar&&window.SINIR_DATA.sayilar){
+        stored.sayilar.forEach((s,i)=>{
+          const orig=window.SINIR_DATA.sayilar[i];
+          if(orig&&orig.editoryal&&!s.editoryal) s.editoryal=orig.editoryal;
+        });
+      }
+      Object.assign(window.SINIR_DATA,stored);
+    }
+  }catch(e){}
+}
+applyAdminEdits();
+const D = window.YAZIK_DATA;
+const $ = s => document.querySelector(s);
+const pad2 = n => String(n).padStart(2,'0');
+const turAd = {oyku:'Öykü',siir:'Şiir',deneme:'Deneme',ceviri:'Çeviri',diger:'Diğer',edebiyat:'Edebiyat'};
+const byId = {}; D.yazarlar.forEach(a=>byId[a.id]=a.ad);
+if(window.SINIR_DATA) window.SINIR_DATA.yazarlar.forEach(a=>{if(!byId[a.id])byId[a.id]=a.ad;});
+if(window.MEDCEZIR_DATA) window.MEDCEZIR_DATA.yazarlar.forEach(a=>{if(!byId[a.id])byId[a.id]=a.ad;});
+
+let activeMag='yazik';
+
+const app = {
+  cur:null, page:1,
+
+  nav(name){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    $('#page-'+name).classList.add('active');
+    document.querySelectorAll('.topbar nav a').forEach(a=>a.classList.toggle('on',a.dataset.nav===name));
+    window.scrollTo(0,0);
+  },
+
+  issueCard(s){
+    const el=document.createElement('a');
+    el.className='icard';
+    el.innerHTML=`<img class="icover" src="${s.goruntu_klasoru}/page-01.jpg" loading="lazy" alt="Sayı ${s.sayi_no} kapak"><div class="iinfo"><div class="m">${s.ay} ${s.yil}</div><div class="n">${s.sayi_no}</div><div class="c">${s.yazi_sayisi} yazı · ${s.sayfa_sayisi} sayfa</div></div>`;
+    el.onclick=()=>app.openIssue(s.cilt, s.sayi_no);
+    return el;
+  },
+
+  issueCardMedcezir(s){
+    const el=document.createElement('a');
+    el.className='icard';
+    const hasCover=!!s.goruntu_klasoru;
+    const cover=hasCover
+      ?`<img class="icover" src="${s.goruntu_klasoru}/page-01.jpg" loading="lazy" alt="Sayı ${s.sayi_no} kapak" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      :'';
+    const fallback=`<div class="icover" style="background:#8A2E18;display:${hasCover?'none':'flex'};align-items:center;justify-content:center"><span style="font-family:var(--display);font-size:44px;font-weight:900;color:rgba(255,255,255,.55)">${s.sayi_no}</span></div>`;
+    el.innerHTML=`${cover}${fallback}<div class="iinfo"><div class="m">${s.ay?s.ay+' ':''}${s.yil}</div><div class="n">${s.sayi_no}</div><div class="c">${s.yazi_sayisi} yazı · ${s.sayfa_sayisi} sayfa</div></div>`;
+    el.onclick=()=>app.openMedcezirIssue(s.sayi_no);
+    return el;
+  },
+
+  openMedcezirIssue(sayi_no,page){
+    const M=window.MEDCEZIR_DATA; if(!M)return;
+    const s=M.sayilar.find(x=>x.sayi_no===sayi_no); if(!s)return;
+    this.cur=s; this.page=page||1;
+    $('#r-title').textContent='MEDCEZİR · Sayı '+s.sayi_no;
+    $('#r-meta').textContent=((s.ay?s.ay+' ':'')+s.yil+' · '+s.yazi_sayisi+' yazı').toUpperCase();
+    const toc=$('#r-toc'); toc.innerHTML='';
+    [...s.yazilar].sort((a,b)=>a.baslangic_sayfa-b.baslangic_sayfa).forEach(y=>{
+      const it=document.createElement('div'); it.className='toc-item';
+      it.innerHTML=`<span class="tp">s.${y.baslangic_sayfa}</span><div class="ta">${y.yazar}</div>`+
+        (y.baslik?`<div class="tt">${y.baslik}</div>`:`<div class="tt" style="color:var(--muted)">—</div>`)+
+        `<span class="tag-tur">${y.tur||''}</span>`;
+      it.onclick=()=>{app.page=y.baslangic_sayfa; app.showPage();};
+      toc.appendChild(it);
+    });
+    const eb=$('#r-edboard'); eb.innerHTML='';
+    if(s.editoryal&&s.editoryal.length){
+      const wrap=document.createElement('div'); wrap.className='edboard';
+      s.editoryal.forEach(e=>{
+        const row=document.createElement('div'); row.className='edrow';
+        row.innerHTML=`<span class="erol">${e.rol}</span><span class="ead">${e.ad}</span>`;
+        wrap.appendChild(row);
+      });
+      eb.appendChild(wrap);
+    }
+    this.nav('reader'); this.showPage();
+  },
+
+  issueCardSinir(s){
+    const el=document.createElement('a');
+    el.className='icard';
+    const cover=s.goruntu_klasoru
+      ?`<img class="icover" src="${s.goruntu_klasoru}/page-01.jpg" loading="lazy" alt="Sayı ${s.sayi_no} kapak">`
+      :`<div class="icover" style="background:#0A5A44;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--display);font-size:44px;font-weight:900;color:rgba(255,255,255,.55)">${s.sayi_no}</span></div>`;
+    el.innerHTML=`${cover}<div class="iinfo"><div class="m">${s.ay} ${s.yil}</div><div class="n">${s.sayi_no}</div><div class="c">${s.yazi_sayisi} yazı${s.sayfa_sayisi?' · '+s.sayfa_sayisi+' sayfa':''}</div></div>`;
+    el.onclick=()=>app.openSinirIssue(s.sayi_no);
+    return el;
+  },
+
+  openSinirIssue(sayi_no,page){
+    const S=window.SINIR_DATA; if(!S)return;
+    const s=S.sayilar.find(x=>x.sayi_no===sayi_no); if(!s)return;
+    this.cur=s; this.page=page||1;
+    const isTextOnly=!s.goruntu_klasoru;
+    $('#r-title').textContent='SINIRDAKİLER · Sayı '+s.sayi_no;
+    $('#r-meta').textContent=(s.ay+' '+s.yil+' · '+s.yazi_sayisi+' yazı').toUpperCase();
+    const toc=$('#r-toc'); toc.innerHTML='';
+    [...s.yazilar].sort((a,b)=>a.baslangic_sayfa-b.baslangic_sayfa).forEach((y,idx)=>{
+      const it=document.createElement('div'); it.className='toc-item';
+      const pg=isTextOnly?idx+1:y.baslangic_sayfa;
+      it.innerHTML=`<span class="tp">s.${pg}</span><div class="ta">${y.yazar}</div>`+
+        (y.baslik?`<div class="tt">${y.baslik}</div>`:`<div class="tt" style="color:var(--muted)">—</div>`)+
+        `<span class="tag-tur"></span>`;
+      it.onclick=()=>{app.page=pg; app.showPage();};
+      toc.appendChild(it);
+    });
+    const eb=$('#r-edboard'); eb.innerHTML='';
+    if(s.editoryal&&s.editoryal.length){
+      const wrap=document.createElement('div'); wrap.className='edboard';
+      s.editoryal.forEach(e=>{
+        const row=document.createElement('div'); row.className='edrow';
+        row.innerHTML=`<span class="erol">${e.rol}</span><span class="ead">${e.ad}</span>`;
+        wrap.appendChild(row);
+      });
+      eb.appendChild(wrap);
+    }
+    this.nav('reader'); this.showPage();
+  },
+
+  ciltHeader(c,yr,sayilar){
+    const sc=sayilar.filter(s=>s.cilt===c);
+    const nSayi=sc.length;
+    const nYazi=sc.reduce((t,s)=>t+s.yazi_sayisi,0);
+    const h=document.createElement('div'); h.className='cilt-header';
+    h.innerHTML=`<div><span class="ch-label">Cilt ${c}</span><span class="ch-stat">${nSayi} sayı &middot; ${nYazi} yazı</span></div><span class="ch-year">${yr}</span>`;
+    return h;
+  },
+
+  renderShelf(){
+    const rail=$('#shelf-rail'); if(!rail)return;
+    rail.innerHTML='';
+    const bar=$('#shelf-mag-bar'); bar.innerHTML='';
+    const tabColors={yazik:'#C87B20',sinirdakiler:'#0D6B52',medcezir:'#8A2E18',hd:'#111'};
+    // YAZ!K spines (real issue data)
+    const sorted=[...D.sayilar].sort((a,b)=>a.cilt-b.cilt||a.sayi_no-b.sayi_no);
+    const mx=Math.max(...sorted.map(s=>s.sayfa_sayisi));
+    let pc=null;
+    sorted.forEach(s=>{
+      if(pc!==null&&s.cilt!==pc){const g=document.createElement('div');g.style.cssText='width:5px;flex-shrink:0';rail.appendChild(g);}
+      const h=70+Math.round((s.sayfa_sayisi/mx)*48);
+      const sp=document.createElement('div');
+      sp.className='spine';
+      sp.style.cssText=`width:12px;height:${h}px;background:#C87B20;opacity:${activeMag==='yazik'?1:.28}`;
+      sp.innerHTML=`<span>${s.sayi_no}</span>`;
+      sp.title=`YAZ!K · ${s.ay} ${s.yil} · Sayı ${s.sayi_no}`;
+      sp.onclick=()=>{activeMag='yazik';app.renderShelf();app.renderHomeContent();};
+      rail.appendChild(sp); pc=s.cilt;
+    });
+    // Gap
+    const g1=document.createElement('div');g1.style.cssText='width:18px;flex-shrink:0';rail.appendChild(g1);
+    // Sınırdakiler (gerçek veri)
+    if(window.SINIR_DATA){window.SINIR_DATA.sayilar.forEach(s=>{
+      const h=s.sayfa_sayisi?70+Math.round((s.sayfa_sayisi/mx)*48):88;
+      const sp=document.createElement('div');
+      sp.className='spine';
+      sp.style.cssText=`width:22px;height:${h}px;background:#0D6B52;opacity:${activeMag==='sinirdakiler'?1:.28}`;
+      sp.innerHTML=`<span>${s.sayi_no}</span>`;
+      sp.title=`Sınırdakiler · ${s.ay} ${s.yil} · Sayı ${s.sayi_no}`;
+      sp.onclick=()=>{activeMag='sinirdakiler';app.renderShelf();app.renderHomeContent();};
+      rail.appendChild(sp);
+    });}
+    // Gap
+    const g2=document.createElement('div');g2.style.cssText='width:18px;flex-shrink:0';rail.appendChild(g2);
+    // Medcezir spines
+    if(window.MEDCEZIR_DATA){window.MEDCEZIR_DATA.sayilar.forEach(s=>{
+      const h=s.sayfa_sayisi?70+Math.round((s.sayfa_sayisi/mx)*48):88;
+      const sp=document.createElement('div');
+      sp.className='spine';
+      sp.style.cssText=`width:18px;height:${h}px;background:#8A2E18;opacity:${activeMag==='medcezir'?1:.28}`;
+      sp.innerHTML=`<span>${s.sayi_no}</span>`;
+      sp.title=`Medcezir · ${s.yil} · Sayı ${s.sayi_no}`;
+      sp.onclick=()=>{activeMag='medcezir';app.renderShelf();app.renderHomeContent();};
+      rail.appendChild(sp);
+    });}
+    // Magazine tabs below shelf board
+    [{id:'yazik',label:'YAZ!K'},{id:'sinirdakiler',label:'SINIRDAKILER'},{id:'medcezir',label:'MEDCEZİR'}].forEach(m=>{
+      const tab=document.createElement('div');
+      tab.className='shelf-mag-tab'+(activeMag===m.id?' on':'');
+      tab.dataset.mag=m.id;
+      tab.textContent=m.label;
+      tab.onclick=()=>{activeMag=m.id;app.renderShelf();app.renderHomeContent();};
+      bar.appendChild(tab);
+    });
+    // HD sergi — dergilerden sonra, ayrı bir giriş
+    const hdTab=document.createElement('div');
+    hdTab.className='shelf-mag-tab shelf-hd-tab';
+    hdTab.textContent='HD';
+    hdTab.onclick=()=>app.nav('hd');
+    bar.appendChild(hdTab);
+  },
+
+  renderFooter(){
+    const F={
+      yazik:{
+        ad:'YAZ!K',
+        desc:'Bağımsız edebiyat dergisi. Öykü, şiir, deneme, söyleşi, çeviri. Cilt 1–5: 2020–2024, 51 sayı.',
+        kunye:[
+          ['Genel Yayın Yönetmeni','Ahmet Özyapıcı'],
+          ['Editörler','Ahmet Koçak / Kadir Polat'],
+          ['Yayın Kurulu','Ali Genç / Erol Kaf / Murat Yılmaz / Tarkan Başer']
+        ]
+      },
+      sinirdakiler:{
+        ad:'Sınırdakiler',
+        desc:'Ne yemen biraz öncemiz\nNe biraz sonramız meksika',
+        kunye:[
+          ['Yayın Yönetmeni','Kadir Polat'],
+          ['Yayın Danışmanı','Ahmet Özyapıcı'],
+          ['Editör','Ali Genç'],
+          ['Uzaktan Editör','Erol Kızıl'],
+          ['Yayın Kurulu','M. Kemal Sağlam / Ahmet Bulut / Ertan Gencer / Me. Emre Akçay / Helim Dur / Abdullah Bulut / Mim Kara']
+        ]
+      },
+      medcezir:{
+        ad:'Med Cezir',
+        desc:'Fikir ve Edebiyat Dergisi',
+        kunye:[
+          ['Yayın Yönetmeni','Kadir Polat'],
+          ['Yazı İşleri','Hüseyin Levent'],
+          ['Editörler','Ali Genç'],
+          ['Uzaktan Editör','Erol Kızıl'],
+          ['Yayın Kurulu','Ahmet Bulut / Alper İrfanlı / Mecit Özdağ / Ertan Gencer / Orhan Aydın / Mahmut Kaçarlar / Hasan Yıldız / M. Kemal Sağlam']
+        ]
+      }
+    };
+    const f=F[activeMag]||F.yazik;
+    $('#f-name').textContent=f.ad;
+    const d=$('#f-desc'); d.innerHTML='';
+    f.desc.split('\n').forEach((ln,i)=>{ if(i)d.appendChild(document.createElement('br')); d.appendChild(document.createTextNode(ln)); });
+    const k=$('#f-kunye'); k.innerHTML='<b>Künye</b>';
+    f.kunye.forEach(([rol,ad],i)=>{ if(i)k.appendChild(document.createElement('br')); k.appendChild(document.createTextNode(`${rol}: ${ad}`)); });
+  },
+
+  renderHomeContent(){
+    this.renderFooter();
+    const g=$('#home-grid'); g.innerHTML='';
+    const title=$('#home-title'); const sub=$('#home-sub');
+    if(activeMag==='yazik'){
+      title.textContent='Yazık Dergisi';
+      const maxCilt=Math.max(...D.sayilar.map(s=>s.cilt));
+      const lastCiltYr=D.sayilar.find(s=>s.cilt===maxCilt)?.yil||'';
+      sub.textContent=`Cilt ${maxCilt} · ${lastCiltYr} · sayıya tıklayıp okumaya başlayın`;
+      g.appendChild(app.ciltHeader(maxCilt,lastCiltYr,D.sayilar));
+      const gg=document.createElement('div'); gg.className='igrid';
+      D.sayilar.filter(s=>s.cilt===maxCilt).forEach(s=>gg.appendChild(app.issueCard(s)));
+      g.appendChild(gg);
+    } else if(activeMag==='sinirdakiler'){
+      const S=window.SINIR_DATA;
+      title.textContent='Sınırdakiler';
+      sub.textContent='Edebiyat · 2014–2015 · sayıya tıklayıp okumaya başlayın';
+      if(S&&S.sayilar){const gg=document.createElement('div');gg.className='igrid';S.sayilar.forEach(s=>gg.appendChild(app.issueCardSinir(s)));g.appendChild(gg);}
+    } else {
+      const M=window.MEDCEZIR_DATA;
+      title.textContent='Medcezir';
+      sub.textContent='Fikir ve Edebiyat Dergisi · 2009–2014 · sayıya tıklayıp okumaya başlayın';
+      if(M&&M.sayilar){const gg=document.createElement('div');gg.className='igrid';M.sayilar.forEach(s=>gg.appendChild(app.issueCardMedcezir(s)));g.appendChild(gg);}
+    }
+  },
+
+  renderHome(){
+    this.renderShelf();
+    this.renderHomeContent();
+    // Arşiv: en yeniden eskiye
+    const a=$('#archive-grid'); a.innerHTML='';
+    const cilts=[...new Set(D.sayilar.map(s=>s.cilt))].sort((x,y)=>y-x);
+    cilts.forEach(c=>{
+      const yr=D.sayilar.find(s=>s.cilt===c)?.yil||'';
+      a.appendChild(app.ciltHeader(c,yr,D.sayilar));
+      const grid=document.createElement('div'); grid.className='igrid';
+      D.sayilar.filter(s=>s.cilt===c).forEach(s=>grid.appendChild(app.issueCard(s)));
+      a.appendChild(grid);
+    });
+  },
+
+  openIssue(cilt, no, startPage){
+    const s=D.sayilar.find(x=>x.cilt===cilt && x.sayi_no===no);
+    this.cur=s; this.page=startPage||1;
+    $('#r-title').textContent='Cilt '+s.cilt+' / Sayı '+s.sayi_no;
+    $('#r-meta').textContent=(s.ay+' '+s.yil+' · '+s.yazi_sayisi+' yazı').toUpperCase();
+    const toc=$('#r-toc'); toc.innerHTML='';
+    s.yazilar.forEach(y=>{
+      const it=document.createElement('div'); it.className='toc-item';
+      const tur=turAd[y.tur]||'';
+      it.innerHTML=`<span class="tp">s.${y.baslangic_sayfa}</span><div class="ta">${y.yazar}</div>`+
+        (y.baslik?`<div class="tt">${y.baslik}</div>`:`<div class="tt" style="color:var(--muted)">—</div>`)+
+        `<span class="tag-tur">${tur}</span>`;
+      it.onclick=()=>{app.page=y.baslangic_sayfa; app.showPage();};
+      toc.appendChild(it);
+    });
+    this.nav('reader'); this.showPage();
+  },
+
+  showPage(){
+    const s=this.cur; if(!s)return;
+    const isSinir=window.SINIR_DATA?.sayilar.includes(s);
+    const isTextOnly=isSinir&&!s.goruntu_klasoru;
+    const total=isTextOnly?(s.yazilar?.length||1):(s.sayfa_sayisi||1);
+    this.page=Math.max(1,Math.min(this.page,total));
+    $('#r-pc').textContent=`${this.page} / ${total}`;
+    $('#r-prev').disabled=this.page<=1;
+    $('#r-next').disabled=this.page>=total;
+    if(isTextOnly){
+      const y=s.yazilar?.[this.page-1];
+      const box=$('#r-text');
+      box.innerHTML='';
+      if(y){
+        const hdr=document.createElement('div');
+        hdr.style.cssText='font-family:var(--util);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#0D6B52;margin-bottom:10px';
+        hdr.textContent=y.yazar;
+        box.appendChild(hdr);
+        if(y.baslik){const t=document.createElement('div');t.style.cssText='font-family:var(--display);font-size:19px;font-weight:900;margin-bottom:14px;color:var(--ink)';t.textContent=y.baslik;box.appendChild(t);}
+        const m=document.createElement('pre');
+        m.style.cssText='font-family:var(--body);font-size:15px;line-height:1.85;white-space:pre-wrap;margin:0;color:var(--ink)';
+        m.textContent=y.metin||'';
+        box.appendChild(m);
+      }
+      box.style.display='block';
+      const ri=$('#r-img'); ri.src=''; ri.style.display='none';
+    } else {
+      const ri=$('#r-img'); ri.style.display='';
+      ri.src=`${s.goruntu_klasoru}/page-${pad2(this.page)}.jpg`;
+      $('#r-text').style.display='none';
+    }
+  },
+
+  renderAuthors(){
+    const S=window.SINIR_DATA;
+    const M=window.MEDCEZIR_DATA;
+    const seen=new Set(); const arr=[];
+    D.yazarlar.forEach(a=>{
+      let yc=0; D.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===a.id)yc++;}));
+      let sc=0; if(S) S.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===a.id)sc++;}));
+      let mc=0; if(M) M.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===a.id)mc++;}));
+      arr.push({...a,count:yc+sc+mc}); seen.add(a.id);
+    });
+    if(S) S.yazarlar.forEach(a=>{
+      if(seen.has(a.id)) return;
+      let sc=0; S.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===a.id)sc++;}));
+      let mc=0; if(M) M.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===a.id)mc++;}));
+      arr.push({...a,count:sc+mc}); seen.add(a.id);
+    });
+    if(M) M.yazarlar.forEach(a=>{
+      if(seen.has(a.id)) return;
+      let mc=0; M.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===a.id)mc++;}));
+      arr.push({...a,count:mc});
+    });
+    arr.sort((a,b)=>a.ad.localeCompare(b.ad,'tr'));
+    $('#auth-count').textContent=arr.length+' yazar · alfabetik';
+    const L=$('#authors-list'); L.innerHTML='';
+    arr.forEach(a=>{
+      const r=document.createElement('div'); r.className='arow';
+      r.innerHTML=`<span class="an">${a.ad}</span><span class="ac">${a.count}</span>`;
+      r.onclick=()=>app.openAuthor(a.id);
+      L.appendChild(r);
+    });
+  },
+
+  openAuthor(id){
+    $('#ad-name').textContent=byId[id];
+    const works=[];
+    D.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===id)works.push({s,y,mag:'yazik'});}));
+    const S=window.SINIR_DATA;
+    if(S) S.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===id)works.push({s,y,mag:'sinir'});}));
+    const M=window.MEDCEZIR_DATA;
+    if(M) M.sayilar.forEach(s=>s.yazilar.forEach(y=>{if(y.yazar_id===id)works.push({s,y,mag:'medcezir'});}));
+    $('#ad-count').textContent=works.length+' yazı';
+    const W=$('#ad-works'); W.innerHTML='';
+    works.forEach(({s,y,mag})=>{
+      const w=document.createElement('div'); w.className='work';
+      if(mag==='yazik'){
+        w.innerHTML=`<span class="wi">YAZ!K C${s.cilt} S${s.sayi_no} · ${s.ay}</span><span><span class="wt">${y.baslik||'—'}</span><span class="wtur">${turAd[y.tur]||''}</span></span>`;
+        w.onclick=()=>app.openIssue(s.cilt,s.sayi_no,y.baslangic_sayfa);
+      } else if(mag==='sinir'){
+        w.innerHTML=`<span class="wi wi-sinir">SINIRDAKİLER S${s.sayi_no} · ${s.ay}</span><span><span class="wt">${y.baslik||'—'}</span><span class="wtur">${turAd[y.tur]||''}</span></span>`;
+        w.onclick=()=>app.openSinirIssue(s.sayi_no,y.baslangic_sayfa);
+      } else {
+        w.innerHTML=`<span class="wi" style="color:#8A2E18">MEDCEZİR S${s.sayi_no} · ${s.yil}</span><span><span class="wt">${y.baslik||'—'}</span><span class="wtur">${y.tur||''}</span></span>`;
+        w.onclick=()=>app.openMedcezirIssue(s.sayi_no,y.baslangic_sayfa);
+      }
+      W.appendChild(w);
+    });
+    this.nav('author');
+  },
+
+  search(q){
+    q=q.trim().toLocaleLowerCase('tr');
+    const R=$('#search-results'); R.innerHTML='';
+    if(q.length<2)return;
+    const res=[];
+    D.sayilar.forEach(s=>s.yazilar.forEach(y=>{
+      const hay=((y.yazar||'')+' '+(y.baslik||'')).toLocaleLowerCase('tr');
+      if(hay.includes(q))res.push({s,y,mag:'yazik'});
+    }));
+    const S=window.SINIR_DATA;
+    if(S) S.sayilar.forEach(s=>s.yazilar.forEach(y=>{
+      const hay=((y.yazar||'')+' '+(y.baslik||'')).toLocaleLowerCase('tr');
+      if(hay.includes(q))res.push({s,y,mag:'sinir'});
+    }));
+    const M=window.MEDCEZIR_DATA;
+    if(M) M.sayilar.forEach(s=>s.yazilar.forEach(y=>{
+      const hay=((y.yazar||'')+' '+(y.baslik||'')).toLocaleLowerCase('tr');
+      if(hay.includes(q))res.push({s,y,mag:'medcezir'});
+    }));
+    if(!res.length){R.innerHTML='<p style="font-family:var(--util);color:var(--muted);padding-top:10px">Sonuç yok.</p>';return;}
+    res.slice(0,80).forEach(({s,y,mag})=>{
+      const w=document.createElement('div'); w.className='work';
+      if(mag==='sinir'){
+        w.innerHTML=`<span class="wi wi-sinir">SINIRDAKİLER S${s.sayi_no} · s.${y.baslangic_sayfa}</span><span><span class="wt">${y.baslik||'—'}</span> <span class="wtur">${y.yazar}</span></span>`;
+        w.onclick=()=>app.openSinirIssue(s.sayi_no,y.baslangic_sayfa);
+      } else if(mag==='medcezir'){
+        w.innerHTML=`<span class="wi" style="color:#8A2E18">MEDCEZİR S${s.sayi_no} · s.${y.baslangic_sayfa}</span><span><span class="wt">${y.baslik||'—'}</span> <span class="wtur">${y.yazar}</span></span>`;
+        w.onclick=()=>app.openMedcezirIssue(s.sayi_no,y.baslangic_sayfa);
+      } else {
+        w.innerHTML=`<span class="wi">C${s.cilt} S${s.sayi_no} · s.${y.baslangic_sayfa}</span><span><span class="wt">${y.baslik||'—'}</span> <span class="wtur">${y.yazar}</span></span>`;
+        w.onclick=()=>app.openIssue(s.cilt,s.sayi_no,y.baslangic_sayfa);
+      }
+      R.appendChild(w);
+    });
+  },
+
+  init(){
+    this.renderHome(); this.renderAuthors();
+    document.querySelectorAll('[data-nav]').forEach(el=>{
+      el.addEventListener('click',()=>{const n=el.dataset.nav; if(n==='authors')app.renderAuthors(); app.nav(n);});
+    });
+    $('#r-prev').onclick=()=>{app.page--;app.showPage();};
+    $('#r-next').onclick=()=>{app.page++;app.showPage();};
+    document.addEventListener('keydown',e=>{
+      if(!$('#page-reader').classList.contains('active'))return;
+      if(e.key==='ArrowLeft'){app.page--;app.showPage();}
+      if(e.key==='ArrowRight'){app.page++;app.showPage();}
+    });
+    $('#search-input').addEventListener('input',e=>app.search(e.target.value));
+  }
+};
+app.init();
+
+// Hero slider: üç dergi ismi geçişli
+(function(){
+  const slides=[...document.querySelectorAll('#hero-slider .hero-slide')];
+  const dots=[...document.querySelectorAll('#hero-dots .hero-dot')];
+  let idx=0, timer=null;
+  function show(i){
+    idx=(i+slides.length)%slides.length;
+    slides.forEach((s,j)=>s.classList.toggle('on',j===idx));
+    dots.forEach((d,j)=>d.classList.toggle('on',j===idx));
+  }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  function start(){ stop(); timer=setInterval(()=>show(idx+1),5000); }
+  dots.forEach((d,j)=>d.addEventListener('click',e=>{e.stopPropagation();show(j);start();}));
+  slides.forEach(s=>s.addEventListener('click',()=>{
+    activeMag=s.dataset.mag; app.renderShelf(); app.renderHomeContent();
+    document.getElementById('home-title').scrollIntoView({behavior:'smooth'});
+  }));
+  const slider=document.getElementById('hero-slider');
+  slider.addEventListener('mouseenter',stop);
+  slider.addEventListener('mouseleave',start);
+  start();
+})();
+
+// HD — Hak Dili / Hal Dili sergi galerisi
+(function(){
+  const HD=window.HD_DATA;
+  if(!HD||!HD.gorseller||!HD.gorseller.length)return;
+  const dir=HD.dizin;
+  const list=HD.gorseller;
+  const src=g=>`${dir}/${g.f}`;
+  document.getElementById('hd-sub').textContent=`${list.length} görsel · Hacı Dayı · 2015`;
+
+  // 1) Spotlight — en çok etkileşim alan 10 poster döner
+  const spotItems=[...list].sort((a,b)=>((b.fav||0)+(b.rt||0))-((a.fav||0)+(a.rt||0))).slice(0,10);
+  const spot=document.getElementById('hd-spot');
+  const stageBg=document.getElementById('hd-stage-bg');
+  const spotCount=document.getElementById('hd-count');
+  spotItems.forEach((g,i)=>{const im=document.createElement('img');im.src=src(g);im.loading=i===0?'eager':'lazy';im.alt='HD poster';if(i===0)im.classList.add('on');spot.appendChild(im);});
+  let si=0, spotTimer=null, playing=true;
+  function showSpot(i){
+    si=(i+spotItems.length)%spotItems.length;
+    [...spot.children].forEach((im,j)=>im.classList.toggle('on',j===si));
+    stageBg.style.backgroundImage=`url("${src(spotItems[si])}")`;
+    spotCount.textContent=`${si+1} / ${spotItems.length}`;
+  }
+  function play(){playing=true;document.getElementById('hd-play').textContent='❚❚';clearInterval(spotTimer);spotTimer=setInterval(()=>showSpot(si+1),4000);}
+  function pause(){playing=false;document.getElementById('hd-play').textContent='▶';clearInterval(spotTimer);}
+  document.getElementById('hd-prev').onclick=()=>{showSpot(si-1);if(playing)play();};
+  document.getElementById('hd-next').onclick=()=>{showSpot(si+1);if(playing)play();};
+  document.getElementById('hd-play').onclick=()=>playing?pause():play();
+  spot.onclick=()=>openLB(list.indexOf(spotItems[si]));
+  showSpot(0);
+  // Sadece HD sayfası açıkken döndür
+  document.querySelectorAll('[data-nav]').forEach(el=>el.addEventListener('click',()=>{
+    setTimeout(()=>{ document.getElementById('page-hd').classList.contains('active')?play():pause(); },0);
+  }));
+
+  // 2) Duvar — JS masonry (sabit sütunlar, reflow yok), sonsuz kaydırma
+  const wall=document.getElementById('hd-wall');
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target);}});},{rootMargin:'120px'});
+  let cols=[], shown=0; const BATCH=60;
+  function colCount(){const w=innerWidth;return w>1200?5:w>900?4:w>600?3:2;}
+  function makeTile(i){
+    const g=list[i];
+    const t=document.createElement('div');
+    t.className='hd-tile';t.dataset.i=i;
+    t.innerHTML=`<img src="${src(g)}" loading="lazy" alt="HD poster"><div class="hd-tile-date">${g.d}</div>`;
+    t.onclick=()=>openLB(i);
+    io.observe(t);
+    return t;
+  }
+  function buildCols(){
+    const n=colCount();
+    wall.innerHTML=''; cols=[];
+    for(let k=0;k<n;k++){const c=document.createElement('div');c.className='hd-col';wall.appendChild(c);cols.push(c);}
+    for(let i=0;i<shown;i++) cols[i%n].appendChild(makeTile(i));
+  }
+  function addBatch(){
+    const n=cols.length;
+    const end=Math.min(shown+BATCH,list.length);
+    const buckets=cols.map(()=>document.createDocumentFragment());
+    for(let i=shown;i<end;i++) buckets[i%n].appendChild(makeTile(i));
+    buckets.forEach((f,k)=>cols[k].appendChild(f));
+    shown=end;
+  }
+  buildCols(); addBatch();
+  const sent=document.getElementById('hd-sentinel');
+  new IntersectionObserver(es=>{if(es[0].isIntersecting&&shown<list.length)addBatch();},{rootMargin:'600px'}).observe(sent);
+  // sütun sayısı değişince yeniden dağıt (debounce)
+  let rt=null, lastN=colCount();
+  addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{const n=colCount();if(n!==lastN){lastN=n;buildCols();}},200);});
+
+  // 3) Lightbox — sürükleyici görüntüleyici
+  const lb=document.getElementById('hd-lb');
+  const lbImg=document.getElementById('hd-lb-img');
+  const lbDate=document.getElementById('hd-lb-date');
+  const lbLink=document.getElementById('hd-lb-link');
+  let lbi=0, wasPlaying=false;
+  function renderLB(){const g=list[lbi];lbImg.src=src(g);lbDate.textContent=g.d;lbLink.href=`https://x.com/i/web/status/${g.tid}`;}
+  window.openLB=function(i){lbi=i;renderLB();lb.classList.add('on');lb.setAttribute('aria-hidden','false');wasPlaying=playing;pause();document.body.style.overflow='hidden';};
+  function closeLB(){lb.classList.remove('on');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';if(wasPlaying)play();}
+  document.getElementById('hd-lb-close').onclick=closeLB;
+  document.getElementById('hd-lb-prev').onclick=()=>{lbi=(lbi-1+list.length)%list.length;renderLB();};
+  document.getElementById('hd-lb-next').onclick=()=>{lbi=(lbi+1)%list.length;renderLB();};
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')closeLB();
+    if(e.key==='ArrowLeft')document.getElementById('hd-lb-prev').click();
+    if(e.key==='ArrowRight')document.getElementById('hd-lb-next').click();
+  });
+})();
+
+// Video: YouTube videoları — eklemek için aşağıdaki listeye satır ekleyin.
+// id = YouTube linkindeki kod (youtube.com/watch?v=XXXXXXXXXXX → XXXXXXXXXXX)
+const VIDEOLAR=[
+  {id:"EoGhoK9ZwEE", baslik:"MURAT KOÇAK-SANA GELDİM…", aciklama:"YAZIK Dergisi"},
+  {id:"NCKI9F2um3Y", baslik:"TARKAN BAŞER-ALLAH SİZİ İNANDIRSIN", aciklama:"YAZIK Dergisi"},
+  {id:"Q86ooMuoa00", baslik:"YAZIK 021", aciklama:"YAZIK Dergisi"},
+  {id:"WIlLDazLJ4Y", baslik:"YASEMİN AKÇA-ÇOCUKLUĞUNU ARIYOR İNSAN", aciklama:"YAZIK Dergisi"},
+  {id:"8Cvsf8CO6dc", baslik:"YAZIK 018", aciklama:"YAZIK Dergisi"},
+  {id:"AAc5PTcRRuY", baslik:"TENGİR KARA-YENİ SAP", aciklama:"YAZIK Dergisi"},
+  {id:"P0C8PWylHE4", baslik:"TARKAN BAŞER-SİZE ANLATTIM MI BİLMEM", aciklama:"YAZIK Dergisi"},
+  {id:"Uk38a3EhS48", baslik:"YAZIK 017", aciklama:"YAZIK Dergisi"},
+  {id:"40mhn7D5NY8", baslik:"AHMET KOÇAK - BULAMADIM", aciklama:"YAZIK Dergisi"},
+  {id:"2YCf-nJE7jc", baslik:"ALİ GENÇ - SUSMA DURAĞI", aciklama:"YAZIK Dergisi"},
+  {id:"KFP70RMH-yw", baslik:"HIZIR İRFAN ÖNDER - ÖLSEM DE OLUR!", aciklama:"YAZIK Dergisi"},
+  {id:"aOfKnOV5ayc", baslik:"YAZIK 016", aciklama:"YAZIK Dergisi"},
+  {id:"vLBTrXYmjP8", baslik:"BİLGE ÇİPE-MAKUS BİR İSMİN ÖTESİNE GEÇMEK YA DA HER NEYSE", aciklama:"YAZIK Dergisi"},
+  {id:"3LwHJMzkNMQ", baslik:"ÂLEM ADAM MY-PANDEMİK SÜREÇTE BİR MÜDÜR MUAVİNİN BİR GÜNÜ", aciklama:"YAZIK Dergisi"},
+  {id:"anWA_vM9qUs", baslik:"MURAT KOÇAK-KIRK YAŞINDAYIM…", aciklama:"YAZIK Dergisi"},
+  {id:"r6Xx14O661Y", baslik:"YAZIK 015", aciklama:"YAZIK Dergisi"},
+  {id:"d5G7wNW4qSs", baslik:"BAHADIR KOŞAR - TEKRAR", aciklama:"YAZIK Dergisi"},
+  {id:"rwTpKlC7Zgo", baslik:"CEMAL KARSAVRAN - HIH", aciklama:"YAZIK Dergisi"},
+  {id:"9718Q8l4L3c", baslik:"MUHAMMED HÜKÜM - BİR ŞİİR YAZ", aciklama:"YAZIK Dergisi"},
+  {id:"6qotTxEBrlE", baslik:"FATMA BETÜL ÖZBUDAK-KOZAM OLAN HÜZÜN", aciklama:"YAZIK Dergisi"},
+  {id:"5tIYl0MFVeE", baslik:"ALİ GENÇ-MÜNECCİM", aciklama:"YAZIK Dergisi"},
+  {id:"3LkuXvuPJ1g", baslik:"YAZIK-14", aciklama:"YAZIK Dergisi"},
+  {id:"riCRAvAl0kM", baslik:"MUHAMMED HÜKÜM-BİR ASLAN VE BİR YOLUN KUZUYA SÖYLEDİĞİ", aciklama:"YAZIK Dergisi"},
+  {id:"0y7DdPYJW_M", baslik:"MURAT KOÇAK-O TÜRKÜ", aciklama:"YAZIK Dergisi"},
+  {id:"JHkHidoOOFo", baslik:"FATMA BETÜL ÖZBUDAK-YAĞMURA YAKALANMIŞ HIZIR", aciklama:"YAZIK Dergisi"},
+  {id:"n38RNC275m8", baslik:"HIZIR İRFAN ÖNDER-YALNIZLAŞIYORUM!", aciklama:"YAZIK Dergisi"},
+  {id:"WlknF82S2E8", baslik:"YAZIK 013", aciklama:"YAZIK Dergisi"},
+  {id:"HV3-QnIu6-I", baslik:"MUHAMMET BARAN ASLAN-BİR DELİNİN GÜNLÜĞÜ", aciklama:"YAZIK Dergisi"},
+  {id:"sypbAkCDoks", baslik:"YAZIK 013 (b)", aciklama:"YAZIK Dergisi"},
+  {id:"AhRWpSa3EoI", baslik:"YAZIK 013 (c)", aciklama:"YAZIK Dergisi"},
+  {id:"Oz-57YMKfT4", baslik:"Bir Damla Yağmur, Bir Damla Sen-M.Doğan Karacoşkun", aciklama:"YAZ!K Edebiyat"},
+  {id:"bjaNyx2LZ0o", baslik:"Savaş ve Barış Üzerine Tiradımı İrat Ettiğimin Beyanındadır-Metah Çakko (Yorumlayan: Alem Adam MY)", aciklama:"YAZ!K Edebiyat"},
+  {id:"xujD7ro4u5w", baslik:"YAZ!K edebiyat-5 \"Bilmeyene de yeni öğrenene de çok YAZ!K...\"", aciklama:"YAZ!K Edebiyat"},
+  {id:"JQjnLbMxGys", baslik:"YAZ!K edebiyat-4", aciklama:"YAZ!K Edebiyat"},
+  {id:"GUcXfJF44GE", baslik:"4 Nisan 2020", aciklama:"YAZ!K Edebiyat"},
+  {id:"mRY-lGWADJk", baslik:"YAZ!K 3", aciklama:"YAZ!K Edebiyat"},
+  {id:"M1Wm0SloEYk", baslik:"Formasyonluların Cevabı-m€t@h cAkkO", aciklama:"YAZ!K Edebiyat"},
+  {id:"N2cV1IWTKp4", baslik:"Yazık Olanlar...", aciklama:"YAZ!K Edebiyat"},
+  {id:"-sSWt_wK0Is", baslik:"Bilge Çipe, Uzaktan Gelen", aciklama:"YAZ!K Edebiyat"},
+  {id:"_fzP4vZw-H0", baslik:"yaz!k dergi, çal keke, Kadir Polat işi", aciklama:"YAZ!K Edebiyat"},
+  {id:"-eCmu_9V7Ag", baslik:"si mi re, Tengir Kara", aciklama:"YAZ!K Edebiyat"},
+  {id:"tm9A6E5Igq0", baslik:"dağbaşı leyli, tarkan başer", aciklama:"YAZ!K Edebiyat"},
+  {id:"kioiH7u8Xtk", baslik:"Kadir Polat Seçkisi", aciklama:"YAZ!K Edebiyat"},
+  {id:"6p3Solp4iMc", baslik:"Bizim, kiler", aciklama:"YAZ!K Edebiyat"},
+  {id:"WoXPZzJK45U", baslik:"vasat, tarkan başer", aciklama:"YAZ!K Edebiyat"},
+  {id:"qt996JMNgFc", baslik:"Köpek neden çalar ayakkabıyı, Ali Genç", aciklama:"YAZ!K Edebiyat"},
+  {id:"411c8aSXFmc", baslik:"YAZ!K, TÜRKÜSÜZ KALANA", aciklama:"YAZ!K Edebiyat"},
+  {id:"LA0D1iPn-H0", baslik:"Yaz!k değil mi?", aciklama:"YAZ!K Edebiyat"},
+  {id:"GvksVGO985Q", baslik:"Ben Komedyen Olamam, Tarkan başer", aciklama:"YAZ!K Edebiyat"},
+  {id:"g-DHc_5PCXk", baslik:"İKİ SERÇE'NİN HİKAYESİ, tarkan başer, şiir", aciklama:"YAZ!K Edebiyat"},
+  {id:"vb_almNb2TA", baslik:"babalar gitmez, tarkan başer", aciklama:"YAZ!K Edebiyat"},
+  {id:"4-SDRbgmGSs", baslik:"babalar gitmez, tarkan başer (b)", aciklama:"YAZ!K Edebiyat"},
+];
+(function(){
+  const g=document.getElementById('video-grid');
+  if(!VIDEOLAR.length){
+    const e=document.createElement('div');
+    e.className='vid-empty';
+    e.textContent='Henüz video eklenmedi. YouTube videolarınız hazır olduğunda buraya eklenecek.';
+    g.parentNode.insertBefore(e,g);
+    return;
+  }
+  VIDEOLAR.forEach(v=>{
+    const c=document.createElement('div');
+    c.className='vidcard';
+    const fac=document.createElement('button');
+    fac.className='vframe vfacade';
+    fac.style.backgroundImage=`url("https://i.ytimg.com/vi/${v.id}/hqdefault.jpg")`;
+    fac.setAttribute('aria-label',(v.baslik||'Video')+' — oynat');
+    fac.innerHTML='<span class="vplay">▶</span>';
+    fac.onclick=()=>{
+      const ifr=document.createElement('iframe');
+      ifr.className='vframe';
+      ifr.src=`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1`;
+      ifr.title=v.baslik||'Video';
+      ifr.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share';
+      ifr.allowFullscreen=true; ifr.referrerPolicy='strict-origin-when-cross-origin';
+      fac.replaceWith(ifr);
+    };
+    c.appendChild(fac);
+    const tt=document.createElement('div'); tt.className='vt'; tt.textContent=v.baslik||''; c.appendChild(tt);
+    if(v.aciklama){const dd=document.createElement('div'); dd.className='vd'; dd.textContent=v.aciklama; c.appendChild(dd);}
+    g.appendChild(c);
+  });
+})();
+
+// Eski Sayılar: PDF indirme listesi (3 dergi)
+(function(){
+  const AYLAR=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+  const ASCII=["Ocak","Subat","Mart","Nisan","Mayis","Haziran","Temmuz","Agustos","Eylul","Ekim","Kasim","Aralik"];
+  const YAZIK_ARSIV=[
+    {cilt:1,yil:2020,sayilar:[[1,"8,6"],[2,"4,3"],[3,"7,0"],[4,"3,9"],[5,"5,3"],[6,"3,3"],[7,"4,5"],[8,"7,5"],[9,"5,4"],[10,"6,2"],[11,"12,9"],[12,"34,7"]]},
+    {cilt:2,yil:2021,sayilar:[[1,"7,5"],[2,"7,2"],[3,"9,4"],[4,"7,5"],[5,"7,6"],[6,"7,7"],[7,"4,7"],[8,"3,6"],[9,"5,1"],[10,"4,7"],[11,"5,7"],[12,"25,7"]]},
+    {cilt:3,yil:2022,sayilar:[[1,"1,9"],[2,"6,1"],[3,"3,4"],[4,"3,7"],[5,"12,8"],[6,"3,3"],[7,"7,5"],[8,"9,2"],[9,"9,1"],[10,"6,5"],[11,"22,9"],[12,"3,5"]]},
+    {cilt:4,yil:2023,sayilar:[[1,"7,4"],[2,"0,4"],[3,"5,9"],[4,"6,7"],[5,"4,5"],[6,"3,9"],[7,"4,4"],[8,"7,2"],[9,"5,9"],[10,"13,1"],[11,"9,4"],[12,"6,6"]]},
+    {cilt:5,yil:2024,sayilar:[[2,"9,5"],[4,"5,6"],[6,"3,8"]]}
+  ];
+  const SINIR_ARSIV=[
+    {sayi:1,yil:2014,mb:"33,6"},{sayi:2,yil:2014,mb:"51,6"},{sayi:3,yil:2015,mb:"42,9"}
+  ];
+  const MEDCEZIR_ARSIV=[
+    {sayi:1,yil:2009,ay:"Ocak",mb:"19,5"},
+    {sayi:2,yil:2009,ay:"Mart-Nisan",mb:"20,3"},
+    {sayi:3,yil:2009,ay:"Haziran-Temmuz",mb:"84,8"},
+    {sayi:4,yil:2010,ay:"Ocak-Şubat-Mart",mb:"39,2"},
+    {sayi:5,yil:2010,ay:"Mayıs-Haziran-Temmuz",mb:"45,9"},
+    {sayi:6,yil:2010,ay:"",mb:"45,9"},
+    {sayi:7,yil:2014,ay:"",mb:"98,8"}
+  ];
+  const list=document.getElementById('dl-list');
+  const sub=document.getElementById('dl-sub');
+  const rom=["","I","II","III","IV","V"];
+
+  function dlCard(href,baslik,alt,mb){
+    const a=document.createElement('a');
+    a.className='dl-card';
+    a.href=href;
+    a.setAttribute('download','');
+    a.innerHTML=`<div><div class="dm">${baslik}</div><div class="dy">${alt} · ${mb} MB</div></div><div class="dico">↓</div>`;
+    return a;
+  }
+  function grup(label,stat,yil){
+    const h=document.createElement('div');
+    h.className='cilt-header';
+    h.innerHTML=`<div><span class="ch-label">${label}</span><span class="ch-stat">${stat}</span></div><div class="ch-year">${yil}</div>`;
+    return h;
+  }
+
+  function renderYazik(){
+    sub.textContent='YAZ!K · Cilt 1–5 · 2020–2024 · 52 PDF';
+    const oz=document.createElement('a');
+    oz.className='dl-ozel';
+    oz.href='pdf/ozel/YAZIK-Siir-Ozel-21-Mart-2020.pdf';
+    oz.setAttribute('download','');
+    oz.innerHTML='<div><div class="dt">YAZ!K Şiir Özel Sayısı</div><div class="dd">21 Mart 2020 · Dünya Şiir Günü · PDF · 11,2 MB</div></div><div class="dico">↓</div>';
+    list.appendChild(oz);
+    YAZIK_ARSIV.forEach(c=>{
+      list.appendChild(grup(`Cilt ${rom[c.cilt]}`,`${c.sayilar.length} sayı · PDF`,c.yil));
+      const g=document.createElement('div');
+      g.className='dl-grid';
+      c.sayilar.forEach(([m,mb])=>{
+        g.appendChild(dlCard(`pdf/cilt${c.cilt}/YAZIK-Cilt${c.cilt}-${c.yil}-${pad2(m)}-${ASCII[m-1]}.pdf`,AYLAR[m-1],`${c.yil}`,mb));
+      });
+      list.appendChild(g);
+    });
+  }
+  function renderSinir(){
+    sub.textContent='Sınırdakiler · 2014–2015 · 3 PDF';
+    list.appendChild(grup('Sınırdakiler','3 sayı · PDF','2014–15'));
+    const g=document.createElement('div');
+    g.className='dl-grid';
+    SINIR_ARSIV.forEach(s=>{
+      g.appendChild(dlCard(`sinirdakiler/Sinirdakiler-${s.yil}-Sayi-${s.sayi}.pdf`,`Sayı ${s.sayi}`,`${s.yil}`,s.mb));
+    });
+    list.appendChild(g);
+  }
+  function renderMedcezir(){
+    sub.textContent='Medcezir · 2009–2014 · 7 PDF';
+    list.appendChild(grup('Medcezir','7 sayı · PDF','2009–14'));
+    const g=document.createElement('div');
+    g.className='dl-grid';
+    MEDCEZIR_ARSIV.forEach(s=>{
+      const alt=s.ay?`${s.ay} ${s.yil}`:`${s.yil}`;
+      g.appendChild(dlCard(`medcezir/Medcezir-${s.yil}-Sayi-${s.sayi}.pdf`,`Sayı ${s.sayi}`,alt,s.mb));
+    });
+    list.appendChild(g);
+  }
+
+  function renderDl(mag){
+    list.innerHTML='';
+    if(mag==='sinir')renderSinir();
+    else if(mag==='medcezir')renderMedcezir();
+    else renderYazik();
+  }
+  document.querySelectorAll('#dl-mag-bar .dl-mag-tab').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('#dl-mag-bar .dl-mag-tab').forEach(x=>x.classList.toggle('on',x===t));
+      renderDl(t.dataset.mag);
+    });
+  });
+  renderDl('yazik');
+})();
+
+// Admin paneli eş zamanlı sync: başka sekmede admin değişince burası da güncellenir
+window.addEventListener('storage',e=>{
+  if(e.key!=='admin_sync_ts')return;
+  applyAdminEdits();
+  Object.keys(byId).forEach(k=>delete byId[k]);
+  D.yazarlar.forEach(a=>byId[a.id]=a.ad);
+  app.renderHome();
+  app.renderAuthors();
+  const t=document.createElement('div');
+  t.style.cssText='position:fixed;bottom:18px;right:18px;background:#0B5E47;color:#fff;padding:9px 18px;border-radius:5px;font-family:var(--util);font-size:12px;z-index:9999;pointer-events:none';
+  t.textContent='✓ Admin değişiklikleri yüklendi';
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),3000);
+});
+
+(function(){
+  const ov=document.getElementById('intro-overlay');
+  const vid=document.getElementById('intro-video');
+  const btnSound=document.getElementById('intro-sound');
+  const btnSkip=document.getElementById('intro-skip');
+  let ended=false;
+  function endIntro(){
+    if(ended)return; ended=true;
+    try{ vid.pause(); vid.muted=true; vid.removeAttribute('src'); vid.load(); }catch(e){}
+    ov.classList.add('fade-out');
+    document.body.classList.remove('intro-active');
+    ov.addEventListener('transitionend',function(){ ov.style.display='none'; },{once:true});
+  }
+  vid.addEventListener('ended',endIntro);
+  btnSkip.addEventListener('click',endIntro);
+  btnSound.addEventListener('click',function(){
+    vid.muted=!vid.muted;
+    btnSound.textContent=vid.muted?'🔇 Ses':'🔊 Ses';
+  });
+  vid.addEventListener('error',endIntro);
+})();
+</script>
+</body>
+</html>

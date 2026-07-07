@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yönetim — Edebiyat Arşivi</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F2EC;--surface:#fff;--border:#E2DDD5;--text:#1A1A2A;--muted:#7A7A8A;
+  --yazik:#B5691A;--sinir:#0B5E47;--accent:#2260CC;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);height:100vh;display:flex;flex-direction:column;font-size:13.5px;color:var(--text)}
+
+/* ── HEADER ─────────────────────────────────── */
+header{background:#18202E;color:#fff;display:flex;align-items:center;gap:12px;padding:0 16px;height:46px;flex-shrink:0}
+header h1{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:#C8D4E0}
+header input{flex:1;max-width:280px;background:#253040;border:1px solid #364050;color:#fff;padding:6px 10px;border-radius:4px;font-size:12.5px;font-family:inherit}
+header input::placeholder{color:#6A7888}
+header input:focus{outline:none;border-color:#4A7ACC}
+.hdr-gap{flex:1}
+.btn{padding:6px 14px;border:none;border-radius:4px;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.04em;transition:opacity .15s;white-space:nowrap}
+.btn:hover{opacity:.85}
+.btn-sinir{background:var(--sinir);color:#fff}
+.btn-yazik{background:var(--yazik);color:#fff}
+.btn-ghost{background:rgba(255,255,255,.1);color:#ccc;border:1px solid rgba(255,255,255,.18)}
+.btn-save{background:var(--accent);color:#fff}
+.btn-del{background:#c03030;color:#fff}
+.btn-sm{padding:4px 10px;font-size:11.5px}
+
+/* ── LAYOUT ──────────────────────────────────── */
+.layout{flex:1;display:flex;overflow:hidden}
+
+/* ── AUTHOR LIST ─────────────────────────────── */
+.pane-authors{width:240px;flex-shrink:0;border-right:1px solid var(--border);overflow-y:auto;background:var(--surface)}
+.pane-authors::-webkit-scrollbar{width:4px}
+.pane-authors::-webkit-scrollbar-thumb{background:#DDD}
+.pane-section-hdr{padding:10px 14px 6px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);background:#FAFAF8;position:sticky;top:0;z-index:1}
+.auth-row{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid #F2EFE8;cursor:pointer;transition:background .1s}
+.auth-row:hover{background:#F5F2EA}
+.auth-row.sel{background:#EBF2FB;border-left:3px solid var(--accent)}
+.auth-row:not(.sel){border-left:3px solid transparent}
+.auth-name{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.auth-counts{display:flex;gap:4px;flex-shrink:0}
+.cnt{font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px}
+.cnt-y{background:#FDE8C0;color:var(--yazik)}
+.cnt-s{background:#C8EDE0;color:var(--sinir)}
+
+/* ── ARTICLES PANE ───────────────────────────── */
+.pane-articles{flex:1;overflow-y:auto;background:var(--bg)}
+.pane-articles::-webkit-scrollbar{width:5px}
+.pane-articles::-webkit-scrollbar-thumb{background:#CCC}
+.art-hdr{padding:14px 18px 12px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:2}
+.art-hdr-name input{font-size:16px;font-weight:700;border:none;background:transparent;width:100%;font-family:inherit;color:var(--text);padding:2px 4px;border-radius:3px}
+.art-hdr-name input:focus{outline:none;background:#F0F4FF;padding:2px 4px}
+.art-list{padding:12px 16px;display:flex;flex-direction:column;gap:8px}
+
+/* Article Card */
+.art-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow .15s}
+.art-card.expanded{box-shadow:0 2px 12px rgba(0,0,0,.12);border-color:#A0B8D8}
+.art-card-top{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;user-select:none}
+.art-card-top:hover{background:#FAFAF8}
+.art-mag-badge{font-size:9.5px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:.08em;flex-shrink:0}
+.badge-y{background:#FDE8C0;color:var(--yazik)}
+.badge-s{background:#C8EDE0;color:var(--sinir)}
+.art-num{font-size:10px;color:var(--muted);flex-shrink:0;width:60px}
+.art-card-title{flex:1;min-width:0}
+.act-title{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.act-meta{font-size:10.5px;color:var(--muted);margin-top:1px}
+.tur-tag{font-size:10px;background:#EEE;color:#666;border-radius:10px;padding:2px 7px;flex-shrink:0}
+.art-chevron{font-size:10px;color:var(--muted);flex-shrink:0;transition:transform .2s}
+.art-card.expanded .art-chevron{transform:rotate(180deg)}
+
+/* Editor area inside card */
+.art-editor{display:none;border-top:1px solid var(--border);padding:16px}
+.art-card.expanded .art-editor{display:flex;gap:16px}
+.editor-img{flex-shrink:0;width:150px}
+.editor-img img{width:100%;border-radius:4px;border:1px solid var(--border);display:block}
+.editor-img .img-cap{font-size:9.5px;color:var(--muted);text-align:center;margin-top:4px}
+.editor-fields{flex:1;display:flex;flex-direction:column;gap:10px}
+.fld{display:flex;flex-direction:column;gap:3px}
+.fld label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.fld input,.fld select,.fld textarea{padding:7px 9px;border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:inherit;color:var(--text);background:#FAFAF8;width:100%}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.fld textarea{min-height:180px;resize:vertical;line-height:1.8;font-size:12.5px}
+.author-wrap{position:relative}
+.author-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:4px;max-height:180px;overflow-y:auto;z-index:40;box-shadow:0 4px 12px rgba(0,0,0,.1);display:none}
+.author-drop.open{display:block}
+.author-opt{padding:8px 10px;cursor:pointer;font-size:12.5px}
+.author-opt:hover{background:#F0F4FF}
+.author-opt .opt-sub{font-size:10.5px;color:var(--muted);margin-top:1px}
+.editor-btns{display:flex;gap:8px;align-items:center;margin-top:2px}
+.save-ok{font-size:11.5px;color:var(--sinir);font-weight:600;display:none}
+
+/* Empty state */
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--muted);gap:12px;text-align:center;padding:40px}
+.empty .ico{font-size:40px;opacity:.3}
+.empty p{font-size:14px;line-height:1.6}
+
+/* Editorial board editor */
+.edboard-area{padding:18px}
+.edboard-sayi{background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:14px;overflow:hidden}
+.edboard-sayi-hdr{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;background:#FAFAF8;border-bottom:1px solid var(--border)}
+.edboard-sayi-hdr:hover{background:#F2EFE8}
+.edboard-sayi-hdr h4{flex:1;font-size:13px;font-weight:700;color:var(--sinir)}
+.edboard-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+.edboard-row{display:flex;gap:8px;align-items:center}
+.edboard-row input{padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12.5px;font-family:inherit;background:#FAFAF8}
+.edboard-row input:focus{outline:none;border-color:var(--accent);background:#fff}
+.edboard-row .inp-rol{width:160px;flex-shrink:0}
+.edboard-row .inp-ad{flex:1}
+.edboard-row .btn-del-row{padding:5px 9px;font-size:12px;background:#fce8e8;color:#b03030;border:none;border-radius:4px;cursor:pointer;flex-shrink:0}
+.edboard-row .btn-del-row:hover{background:#f8cfcf}
+.edboard-add-row{margin-top:4px}
+/* Toast */
+.toast{position:fixed;bottom:18px;right:18px;background:#18202E;color:#fff;padding:9px 16px;border-radius:5px;font-size:12.5px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:999}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⊞ Yönetim</h1>
+  <input id="search-inp" type="search" placeholder="Yazar ara…" oninput="filterAuthors(this.value)">
+  <div class="hdr-gap"></div>
+  <button class="btn btn-ghost btn-sm" onclick="resetAll()">↺ Sıfırla</button>
+  <button class="btn btn-ghost btn-sm" id="btn-edboard" onclick="toggleEdboard()">✎ Editöryal Kurullar</button>
+  <button class="btn btn-sinir btn-sm" onclick="exportMag('sinir')">↓ Sınırdakiler.js</button>
+  <button class="btn btn-yazik btn-sm" onclick="exportMag('yazik')">↓ YAZ!K.js</button>
+</header>
+
+<div class="layout">
+
+  <!-- AUTHORS -->
+  <div class="pane-authors" id="pane-authors">
+    <div class="pane-section-hdr" id="author-count-hdr">Yazarlar</div>
+    <div id="author-list"></div>
+  </div>
+
+  <!-- ARTICLES -->
+  <div class="pane-articles" id="pane-articles">
+    <div class="empty" id="empty-msg">
+      <div class="ico">👤</div>
+      <p>Sol panelden bir yazar seçin<br>yazılarını görmek ve düzenlemek için</p>
+    </div>
+    <div id="edboard-area" style="display:none" class="edboard-area"></div>
+    <div id="articles-area" style="display:none">
+      <div class="art-hdr">
+        <div class="art-hdr-name" style="flex:1">
+          <input id="auth-name-inp" type="text" value="" placeholder="Yazar adı" onchange="saveAuthorName(this.value)">
+        </div>
+        <span id="art-count-badge" style="font-size:12px;color:var(--muted);flex-shrink:0"></span>
+      </div>
+      <div class="art-list" id="art-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data/data.js"></script>
+<script src="data/sinirdakiler_data.js"></script>
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────────────────────────────────────
+let yazik = null;
+let sinir = null;
+let authors = {};
+let selAuthorId = null;
+let currentArts = [];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────────────────────
+function init() {
+  yazik = loadLS('admin_yazik') || deepCopy(window.YAZIK_DATA);
+  sinir = loadLS('admin_sinir') || deepCopy(window.SINIR_DATA);
+  buildAuthors();
+  showAuthorList(Object.values(authors).sort((a,b)=>a.ad.localeCompare(b.ad,'tr')));
+}
+
+function loadLS(k) { try { const v=localStorage.getItem(k); return v?JSON.parse(v):null; } catch(e){return null;} }
+function deepCopy(o) { return JSON.parse(JSON.stringify(o||{})); }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BUILD UNIFIED AUTHORS
+// ─────────────────────────────────────────────────────────────────────────────
+function buildAuthors() {
+  const stored = loadLS('admin_authors');
+  if (stored) authors = stored;
+
+  (yazik?.yazarlar||[]).forEach(a => {
+    if (!authors[a.id]) authors[a.id] = {id:a.id, ad:a.ad};
+  });
+
+  (sinir?.yazarlar||[]).forEach(a => {
+    const norm = nn(a.ad);
+    const match = Object.values(authors).find(m => nn(m.ad) === norm);
+    if (!match) { const id=slug(a.ad); if(!authors[id]) authors[id]={id,ad:a.ad}; }
+  });
+
+  (sinir?.sayilar||[]).forEach(s => {
+    (s.yazilar||[]).forEach(y => {
+      if (!y.yazar_id && y.yazar) {
+        const norm = nn(y.yazar);
+        const match = Object.values(authors).find(m => nn(m.ad) === norm);
+        if (match) { y.yazar_id = match.id; }
+        else { const id=slug(y.yazar); if(!authors[id]) authors[id]={id,ad:y.yazar}; y.yazar_id=id; }
+      }
+    });
+  });
+}
+
+function nn(s) { return (s||'').toLocaleLowerCase('tr').replace(/\s+/g,' ').trim(); }
+function slug(s) {
+  return (s||'').toLocaleLowerCase('tr')
+    .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// AUTHOR LIST
+// ─────────────────────────────────────────────────────────────────────────────
+function artCounts(id) {
+  const y = (yazik?.sayilar||[]).reduce((t,s)=>t+(s.yazilar||[]).filter(a=>a.yazar_id===id).length,0);
+  const s = (sinir?.sayilar||[]).reduce((t,s)=>t+(s.yazilar||[]).filter(a=>a.yazar_id===id).length,0);
+  return {y,s};
+}
+
+function showAuthorList(list) {
+  document.getElementById('author-count-hdr').textContent = `Yazarlar (${list.length})`;
+  document.getElementById('author-list').innerHTML = list.map(a => {
+    const c = artCounts(a.id);
+    return `<div class="auth-row${selAuthorId===a.id?' sel':''}" onclick="selectAuthor('${esc(a.id)}')">
+      <span class="auth-name">${esc(a.ad)}</span>
+      <span class="auth-counts">
+        ${c.y?`<span class="cnt cnt-y">${c.y}</span>`:''}
+        ${c.s?`<span class="cnt cnt-s">${c.s}</span>`:''}
+      </span>
+    </div>`;
+  }).join('');
+}
+
+function filterAuthors(q) {
+  const norm = q.toLocaleLowerCase('tr');
+  const list = Object.values(authors)
+    .filter(a => a.ad.toLocaleLowerCase('tr').includes(norm))
+    .sort((a,b) => a.ad.localeCompare(b.ad,'tr'));
+  showAuthorList(list);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SELECT AUTHOR → SHOW ARTICLES
+// ─────────────────────────────────────────────────────────────────────────────
+function selectAuthor(id) {
+  selAuthorId = id;
+  filterAuthors(document.getElementById('search-inp').value);
+
+  const a = authors[id];
+  document.getElementById('auth-name-inp').value = a.ad;
+
+  currentArts = [];
+  (yazik?.sayilar||[]).forEach(s => {
+    (s.yazilar||[]).forEach((y,i) => {
+      if (y.yazar_id===id) currentArts.push({mag:'yazik',sayi:s.sayi_no,cilt:s.cilt,idx:i,y,s});
+    });
+  });
+  (sinir?.sayilar||[]).forEach(s => {
+    (s.yazilar||[]).forEach((y,i) => {
+      if (y.yazar_id===id) currentArts.push({mag:'sinir',sayi:s.sayi_no,idx:i,y,s});
+    });
+  });
+
+  document.getElementById('empty-msg').style.display='none';
+  document.getElementById('articles-area').style.display='block';
+  document.getElementById('art-count-badge').textContent=`${currentArts.length} yazı`;
+  document.getElementById('art-list').innerHTML = currentArts.map((art,i)=>buildCard(art,i)).join('');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BUILD CARD HTML
+// ─────────────────────────────────────────────────────────────────────────────
+function buildCard(art, i) {
+  const {mag,sayi,cilt,idx,y,s} = art;
+  const magBadge = mag==='yazik'
+    ? `<span class="art-mag-badge badge-y">YAZ!K</span>`
+    : `<span class="art-mag-badge badge-s">SINIRDAKILER</span>`;
+  const sayiStr = mag==='yazik' ? `C${cilt}/S${sayi}` : `Sayı ${sayi}`;
+  const turMap = {diger:'—',siir:'Şiir',oyku:'Öykü',deneme:'Deneme',ceviri:'Çeviri'};
+  const turText = turMap[y.tur]||y.tur||'—';
+
+  // Page image for sinir issues with images
+  let imgBlock = '';
+  if (mag==='sinir' && s.goruntu_klasoru && y.baslangic_sayfa) {
+    const src = `${s.goruntu_klasoru}/page-${String(y.baslangic_sayfa).padStart(2,'0')}.jpg`;
+    imgBlock = `<div class="editor-img">
+      <img src="${esc(src)}" alt="Sayfa ${y.baslangic_sayfa}" loading="lazy" onerror="this.parentElement.remove()">
+      <div class="img-cap">Sayfa ${y.baslangic_sayfa}</div>
+    </div>`;
+  }
+
+  const metinBlock = mag==='sinir'
+    ? `<div class="fld"><label>Metin</label><textarea id="ed-metin-${i}">${esc(y.metin||'')}</textarea></div>`
+    : `<div style="font-size:11px;color:var(--muted);padding:4px 0;font-style:italic">YAZ!K metinleri ayrı .txt dosyalarında tutulur</div>`;
+
+  const turOpts = ['diger','siir','oyku','deneme','ceviri']
+    .map(t=>`<option value="${t}"${y.tur===t?' selected':''}>${turMap[t]||t}</option>`).join('');
+
+  return `
+<div class="art-card" id="card-${i}" data-mag="${mag}" data-sayi="${sayi}" data-idx="${idx}">
+  <div class="art-card-top" onclick="toggleCard(${i})">
+    ${magBadge}
+    <span class="art-num">${sayiStr}</span>
+    <div class="art-card-title">
+      <div class="act-title">${esc(y.baslik||'(başlık yok)')}</div>
+      <div class="act-meta">${y.baslangic_sayfa?`s.${y.baslangic_sayfa} · `:''}${mag==='yazik'?`Cilt ${cilt}, Sayı ${sayi}`:`${s.ay} ${s.yil}`}</div>
+    </div>
+    <span class="tur-tag">${turText}</span>
+    <span class="art-chevron">▼</span>
+  </div>
+  <div class="art-editor">
+    ${imgBlock}
+    <div class="editor-fields">
+      <div class="fld">
+        <label>Yazar</label>
+        <div class="author-wrap">
+          <input id="ed-yazar-${i}" type="text" value="${esc(y.yazar||authors[y.yazar_id]?.ad||'')}"
+            oninput="authorSearch(${i},this.value)" onfocus="authorSearch(${i},this.value)"
+            onblur="closeDropSoon(${i})" autocomplete="off">
+          <div class="author-drop" id="adrop-${i}"></div>
+        </div>
+        <input type="hidden" id="ed-yazarid-${i}" value="${esc(y.yazar_id||'')}">
+      </div>
+      <div class="fld">
+        <label>Başlık</label>
+        <input id="ed-baslik-${i}" type="text" value="${esc(y.baslik||'')}">
+      </div>
+      <div class="fld">
+        <label>Tür</label>
+        <select id="ed-tur-${i}">${turOpts}</select>
+      </div>
+      ${metinBlock}
+      <div class="editor-btns">
+        <button class="btn btn-save btn-sm" onclick="saveArticle(${i})">Kaydet</button>
+        <button class="btn btn-del btn-sm" onclick="deleteArticle(${i})">Sil</button>
+        <span class="save-ok" id="ok-${i}">✓ Kaydedildi</span>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TOGGLE CARD
+// ─────────────────────────────────────────────────────────────────────────────
+function toggleCard(i) {
+  const card = document.getElementById(`card-${i}`);
+  const wasOpen = card.classList.contains('expanded');
+  document.querySelectorAll('.art-card.expanded').forEach(c=>c.classList.remove('expanded'));
+  if (!wasOpen) {
+    card.classList.add('expanded');
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// AUTHOR AUTOCOMPLETE
+// ─────────────────────────────────────────────────────────────────────────────
+function authorSearch(i, q) {
+  const drop = document.getElementById(`adrop-${i}`);
+  const norm = q.toLocaleLowerCase('tr');
+  const matches = Object.values(authors)
+    .filter(a=>a.ad.toLocaleLowerCase('tr').includes(norm))
+    .sort((a,b)=>a.ad.localeCompare(b.ad,'tr')).slice(0,12);
+  drop.innerHTML = matches.map(a => {
+    const c = artCounts(a.id);
+    const sub = [c.y?`YAZ!K:${c.y}`:'',c.s?`Sinir:${c.s}`:''].filter(Boolean).join(' · ');
+    return `<div class="author-opt" onmousedown="pickAuthor(${i},'${esc(a.id)}','${esc(a.ad)}')">${esc(a.ad)}<div class="opt-sub">${sub||'yazı yok'}</div></div>`;
+  }).join('') || `<div class="author-opt" style="color:var(--muted)">Bulunamadı</div>`;
+  drop.classList.add('open');
+}
+function closeDropSoon(i) { setTimeout(()=>{ const d=document.getElementById(`adrop-${i}`); if(d)d.classList.remove('open'); },180); }
+function pickAuthor(i,id,ad) {
+  document.getElementById(`ed-yazar-${i}`).value=ad;
+  document.getElementById(`ed-yazarid-${i}`).value=id;
+  document.getElementById(`adrop-${i}`).classList.remove('open');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SAVE AUTHOR NAME (updates all their articles)
+// ─────────────────────────────────────────────────────────────────────────────
+function saveAuthorName(newAd) {
+  if (!selAuthorId || !newAd.trim() || newAd.trim()===authors[selAuthorId]?.ad) return;
+  authors[selAuthorId].ad = newAd.trim();
+  const propagate = (list) => list.forEach(y=>{ if(y.yazar_id===selAuthorId) y.yazar=newAd.trim(); });
+  (yazik?.yazarlar||[]).forEach(a=>{ if(a.id===selAuthorId) a.ad=newAd.trim(); });
+  (yazik?.sayilar||[]).forEach(s=>propagate(s.yazilar||[]));
+  (sinir?.yazarlar||[]).forEach(a=>{ if(a.id===selAuthorId) a.ad=newAd.trim(); });
+  (sinir?.sayilar||[]).forEach(s=>propagate(s.yazilar||[]));
+  commitSave();
+  toast(`Ad güncellendi: ${newAd.trim()}`);
+  filterAuthors(document.getElementById('search-inp').value);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SAVE ARTICLE
+// ─────────────────────────────────────────────────────────────────────────────
+function saveArticle(i) {
+  const card = document.getElementById(`card-${i}`);
+  const {mag,sayi,idx} = {mag:card.dataset.mag, sayi:parseInt(card.dataset.sayi), idx:parseInt(card.dataset.idx)};
+  const ds = mag==='sinir' ? sinir : yazik;
+  const s = (ds?.sayilar||[]).find(x=>x.sayi_no===sayi);
+  const y = s?.yazilar?.[idx];
+  if (!y) return;
+
+  const yazarId = document.getElementById(`ed-yazarid-${i}`).value;
+  const yazarAd = document.getElementById(`ed-yazar-${i}`).value.trim();
+  if (yazarId && authors[yazarId]) { y.yazar_id=yazarId; y.yazar=authors[yazarId].ad; }
+  else if (yazarAd) { y.yazar=yazarAd; }
+  y.baslik = document.getElementById(`ed-baslik-${i}`).value.trim();
+  y.tur = document.getElementById(`ed-tur-${i}`).value;
+  const mt = document.getElementById(`ed-metin-${i}`);
+  if (mt) y.metin = mt.value;
+
+  commitSave();
+
+  const ok = document.getElementById(`ok-${i}`);
+  ok.style.display='inline'; setTimeout(()=>ok.style.display='none',2000);
+
+  // Update collapsed card preview
+  const titleEl = card.querySelector('.act-title');
+  if (titleEl) titleEl.textContent = y.baslik||'(başlık yok)';
+  const turEl = card.querySelector('.tur-tag');
+  if (turEl) turEl.textContent = {diger:'—',siir:'Şiir',oyku:'Öykü',deneme:'Deneme',ceviri:'Çeviri'}[y.tur]||y.tur||'—';
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DELETE ARTICLE
+// ─────────────────────────────────────────────────────────────────────────────
+function deleteArticle(i) {
+  const card = document.getElementById(`card-${i}`);
+  const {mag,sayi,idx} = {mag:card.dataset.mag, sayi:parseInt(card.dataset.sayi), idx:parseInt(card.dataset.idx)};
+  const ds = mag==='sinir' ? sinir : yazik;
+  const s = (ds?.sayilar||[]).find(x=>x.sayi_no===sayi);
+  const y = s?.yazilar?.[idx];
+  if (!y || !confirm(`"${y.baslik||'—'}" silinsin mi?`)) return;
+  s.yazilar.splice(idx,1);
+  commitSave();
+  selectAuthor(selAuthorId);
+  toast('Yazı silindi');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COMMIT SAVE → localStorage → triggers live sync in index.html
+// ─────────────────────────────────────────────────────────────────────────────
+function commitSave() {
+  localStorage.setItem('admin_yazik', JSON.stringify(yazik));
+  localStorage.setItem('admin_sinir', JSON.stringify(sinir));
+  localStorage.setItem('admin_authors', JSON.stringify(authors));
+  // This storage event fires in all other tabs (including index.html)
+  localStorage.setItem('admin_sync_ts', String(Date.now()));
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// EXPORT
+// ─────────────────────────────────────────────────────────────────────────────
+function exportMag(which) {
+  let js, fname;
+  if (which==='sinir') {
+    sinir.yazarlar = Object.values(authors).sort((a,b)=>a.ad.localeCompare(b.ad,'tr')).map(a=>({id:a.id,ad:a.ad}));
+    js = 'window.SINIR_DATA = ' + JSON.stringify(sinir, null, 2) + ';\n';
+    fname = 'sinirdakiler_data.js';
+  } else {
+    yazik.yazarlar = yazik.yazarlar.map(a=>({...a, ad: authors[a.id]?.ad||a.ad}));
+    js = 'window.YAZIK_DATA = ' + JSON.stringify(yazik, null, 2) + ';\n';
+    fname = 'data.js';
+  }
+  const blob = new Blob([js],{type:'application/javascript;charset=utf-8'});
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname; a.click();
+  toast(`${fname} indirildi → site/data/ klasörüne kopyalayın`);
+}
+
+function resetAll() {
+  if (!confirm('Tüm admin değişiklikleri silinecek, orijinal dosyalar kullanılacak. Devam?')) return;
+  ['admin_yazik','admin_sinir','admin_authors','admin_sync_ts'].forEach(k=>localStorage.removeItem(k));
+  location.reload();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// UTILS
+// ─────────────────────────────────────────────────────────────────────────────
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function toast(msg) {
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('on'),2800);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// EDITORIAL BOARD EDITOR
+// ─────────────────────────────────────────────────────────────────────────────
+let edboardOpen = false;
+
+function toggleEdboard() {
+  edboardOpen = !edboardOpen;
+  const btn = document.getElementById('btn-edboard');
+  const ea = document.getElementById('edboard-area');
+  const empty = document.getElementById('empty-msg');
+  const arts = document.getElementById('articles-area');
+  if (edboardOpen) {
+    btn.style.background = 'var(--sinir)'; btn.style.color = '#fff';
+    ea.style.display = 'block';
+    empty.style.display = 'none';
+    arts.style.display = 'none';
+    renderEdboard();
+  } else {
+    btn.style.background = ''; btn.style.color = '';
+    ea.style.display = 'none';
+    if (selAuthorId) { arts.style.display = 'block'; } else { empty.style.display = 'flex'; }
+  }
+}
+
+function renderEdboard() {
+  const ea = document.getElementById('edboard-area');
+  ea.innerHTML = '<h3 style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Sınırdakiler — Editöryal Kurullar</h3>' +
+    (sinir?.sayilar||[]).map(s => edboardSayiHtml(s)).join('');
+}
+
+function edboardSayiHtml(s) {
+  const rows = (s.editoryal||[]).map((e,i) => edboardRowHtml(s.sayi_no, e, i)).join('');
+  return `<div class="edboard-sayi">
+    <div class="edboard-sayi-hdr">
+      <h4>Sayı ${s.sayi_no} · ${s.ay} ${s.yil}</h4>
+      <button class="btn btn-sm btn-save" onclick="addEdrow(${s.sayi_no})">+ Ekle</button>
+    </div>
+    <div class="edboard-body" id="edboard-body-${s.sayi_no}">${rows}</div>
+  </div>`;
+}
+
+function edboardRowHtml(sayiNo, e, i) {
+  const rolOpts = ['Yayın Yönetmeni','Editör','Uzaktan Editör','Yayın Danışmanı','Yayın Kurulu','Baskı']
+    .map(r => `<option${e.rol===r?' selected':''}>${r}</option>`).join('');
+  return `<div class="edboard-row" id="edrow-${sayiNo}-${i}">
+    <select class="inp-rol" id="erol-${sayiNo}-${i}" style="padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12.5px;font-family:inherit;background:#FAFAF8;width:180px;flex-shrink:0"
+      onchange="saveEdrow(${sayiNo},${i})">${rolOpts}</select>
+    <input class="inp-ad" id="ead-${sayiNo}-${i}" type="text" value="${esc(e.ad)}" placeholder="Ad Soyad"
+      onchange="saveEdrow(${sayiNo},${i})" onblur="saveEdrow(${sayiNo},${i})">
+    <button class="btn-del-row" onclick="deleteEdrow(${sayiNo},${i})">✕</button>
+  </div>`;
+}
+
+function addEdrow(sayiNo) {
+  const s = (sinir?.sayilar||[]).find(x=>x.sayi_no===sayiNo);
+  if (!s) return;
+  if (!s.editoryal) s.editoryal = [];
+  s.editoryal.push({rol:'Yayın Kurulu', ad:''});
+  commitSave();
+  renderEdboard();
+  // focus the new ad input
+  const newIdx = s.editoryal.length - 1;
+  const inp = document.getElementById(`ead-${sayiNo}-${newIdx}`);
+  if (inp) { inp.focus(); inp.select(); }
+}
+
+function deleteEdrow(sayiNo, idx) {
+  const s = (sinir?.sayilar||[]).find(x=>x.sayi_no===sayiNo);
+  if (!s||!s.editoryal) return;
+  s.editoryal.splice(idx, 1);
+  commitSave();
+  renderEdboard();
+  toast('Silindi');
+}
+
+function saveEdrow(sayiNo, idx) {
+  const s = (sinir?.sayilar||[]).find(x=>x.sayi_no===sayiNo);
+  if (!s||!s.editoryal||!s.editoryal[idx]) return;
+  const rol = document.getElementById(`erol-${sayiNo}-${idx}`)?.value;
+  const ad  = document.getElementById(`ead-${sayiNo}-${idx}`)?.value.trim();
+  if (rol) s.editoryal[idx].rol = rol;
+  if (ad !== undefined) s.editoryal[idx].ad = ad;
+  commitSave();
+  toast('Kaydedildi');
+}
+
+init();
+</script>
+</body>
+</html>

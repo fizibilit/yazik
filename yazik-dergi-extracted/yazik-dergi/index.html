@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAZIK DERGİSİ — Süreli Edebiyat Dergisi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EFE6;--paper-2:#EBE3D5;--ink:#16202E;--ink-soft:#2C3A4D;--accent:#D98A2B;--accent-deep:#7A1E2B;--muted:#6B6256;--line:#D7CCBA;--display:"Fraunces",Georgia,serif;--read:"Newsreader",Georgia,serif;--util:"Space Grotesk",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--read);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+.page{display:none}.page.active{display:block}
+.topbar{border-bottom:1px solid var(--line);font-family:var(--util);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;position:sticky;top:0;background:var(--paper);z-index:100}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:46px;gap:18px}
+.topbar .logo{font-weight:600;cursor:pointer;color:var(--accent-deep)}
+.topbar nav{display:flex;gap:22px;flex-wrap:wrap}
+.topbar nav a{color:var(--ink-soft);transition:color .2s;cursor:pointer}
+.topbar nav a:hover{color:var(--accent-deep)}
+.masthead{padding:54px 0 30px;text-align:center;border-bottom:2px solid var(--ink)}
+.masthead h1{font-family:var(--display);font-weight:900;font-size:clamp(78px,17vw,180px);line-height:.82;letter-spacing:-.02em;margin-bottom:14px;cursor:pointer}
+.masthead h1:hover{color:var(--accent-deep)}
+.masthead .eyebrow{font-family:var(--util);font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:18px}
+.masthead .sub{font-family:var(--util);font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.masthead .tag{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(16px,2.4vw,21px);color:var(--ink-soft);margin-top:20px}
+.issue-selector{border-bottom:1px solid var(--line);padding:18px 0}
+.issue-selector .wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.issue-selector label{font-family:var(--util);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+.issue-selector select{font-family:var(--util);font-size:13px;padding:8px 12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;border-radius:2px}
+.issue-selector select:hover{border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:40px 0}
+.card{background:var(--paper);padding:30px 26px;transition:background .2s;cursor:pointer}
+.card:hover{background:var(--paper-2)}
+.card .ct{font-family:var(--util);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:16px;display:block}
+.card h4{font-family:var(--display);font-weight:600;font-size:25px;line-height:1.12;margin-bottom:12px}
+.card .ex{color:var(--ink-soft);font-size:16.5px;margin-bottom:18px}
+.card .by{font-family:var(--util);font-size:12px;letter-spacing:.04em;color:var(--muted)}
+.article-page{padding:60px 0}
+.article-header{margin-bottom:50px;border-bottom:1px solid var(--line);padding-bottom:40px}
+.article-title{font-family:var(--display);font-weight:600;font-size:clamp(36px,7vw,68px);line-height:1.1;margin-bottom:8px}
+.article-meta{font-family:var(--util);font-size:13px;color:var(--muted);margin-bottom:16px}
+.article-meta b{color:var(--ink);font-weight:600}
+.article-content{max-width:65ch;margin:50px auto;font-size:18px;line-height:1.8}
+.article-content p{margin-bottom:24px}
+.article-content .dropcap{font-family:var(--display);font-weight:900;font-size:72px;float:left;line-height:.8;padding-right:8px;padding-top:3px}
+.back-btn{font-family:var(--util);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:40px;cursor:pointer;display:inline-block}
+.back-btn:hover{color:var(--ink)}
+footer{padding:56px 0 70px;border-top:2px solid var(--ink);margin-top:62px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px}
+footer .fname{font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:-.01em}
+footer .fcol{font-family:var(--util);font-size:13px;letter-spacing:.04em;color:var(--muted);line-height:2.1}
+footer .fcol b{display:block;color:var(--ink);text-transform:uppercase;letter-spacing:.16em;font-size:11px;margin-bottom:8px}
+.nav-arrows{font-family:var(--util);font-size:12px;margin-top:40px;padding-top:40px;border-top:1px solid var(--line)}
+.nav-arrows a{display:inline-block;margin-right:20px;color:var(--accent-deep);transition:color .2s}
+.nav-arrows a:hover{color:var(--ink)}
+.search-box{font-family:var(--util);font-size:13px;padding:8px 12px;border:1px solid var(--line);width:100%;margin:20px 0;border-radius:2px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0}
+.filter-btn{font-family:var(--util);font-size:12px;padding:6px 14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;border-radius:999px;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.note{background:var(--accent);color:var(--paper);padding:20px;text-align:center;font-family:var(--util);font-size:13px;letter-spacing:.04em}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="note">✓ YAZIK DERGİSİ Web Platformu — 4 Cilt, 48 Sayı, Tüm Yazılar</div>
+
+<!-- ========== PAGE 1: HOME ========== -->
+<div id="page-home" class="page active">
+<div class="topbar">
+<div class="wrap">
+<span class="logo" onclick="app.goPage('home')">YAZIK</span>
+<nav>
+<a onclick="app.goPage('home')">Ana</a>
+<a onclick="app.goPage('archive')">Arşiv</a>
+<a href="#">Hakkında</a>
+</nav>
+</div>
+</div>
+
+<header class="masthead">
+<div class="wrap">
+<div class="eyebrow">Edebiyat · Öykü · Şiir</div>
+<h1 onclick="app.goPage('home')">YAZIK</h1>
+<div class="sub">S Ü R E L İ  D E R G İ</div>
+<div class="tag">Söylenmemiş her şeye dair, üç ayda bir.</div>
+</div>
+</header>
+
+<div class="wrap">
+
+<div class="issue-selector">
+<div class="wrap">
+<label>Sayı seç:</label>
+<select id="issue-select" onchange="app.loadIssue()">
+<option value="">Son Yayınlar</option>
+</select>
+</div>
+</div>
+
+<div id="grid-container" class="grid"></div>
+
+</div>
+
+<footer>
+<div class="wrap">
+<div><div class="fname">YAZIK</div><p class="fcol" style="margin-top:10px;max-width:30ch">Bağımsız edebiyat dergisi. Öykü, şiir, deneme, söyleşi. 4 cilt, 48 sayı, 2020-2023.</p></div>
+<div class="fcol"><b>Sayfalar</b><a href="#" onclick="app.goPage('home');return false">Ana Sayfa</a><br><a href="#" onclick="app.goPage('archive');return false">Arşiv</a></div>
+<div class="fcol"><b>Bağlantılar</b>Instagram<br>Twitter<br>E-posta</div>
+</div>
+</footer>
+
+</div>
+
+<!-- ========== PAGE 2: ARCHIVE ========== -->
+<div id="page-archive" class="page">
+<div class="topbar">
+<div class="wrap">
+<span class="logo" onclick="app.goPage('home')">← Ana Sayfaya</span>
+<nav>
+<a onclick="app.goPage('home')">Ana</a>
+<a onclick="app.filterIssues('all')">Tümü</a>
+</nav>
+</div>
+</div>
+
+<div class="wrap">
+<h2 style="font-family:var(--display);font-size:48px;margin:60px 0 40px">Arşiv</h2>
+<div class="filters">
+<button class="filter-btn active" onclick="app.filterIssues('all')">Tümü (48)</button>
+<button class="filter-btn" onclick="app.filterIssues(1)">Cilt 1 (2020)</button>
+<button class="filter-btn" onclick="app.filterIssues(2)">Cilt 2 (2021)</button>
+<button class="filter-btn" onclick="app.filterIssues(3)">Cilt 3 (2022)</button>
+<button class="filter-btn" onclick="app.filterIssues(4)">Cilt 4 (2023)</button>
+</div>
+<div id="archive-grid" class="grid"></div>
+</div>
+
+<footer>
+<div class="wrap">
+<div class="fname">YAZIK DERGİSİ</div>
+</div>
+</footer>
+
+</div>
+
+<!-- ========== PAGE 3: ARTICLE ========== -->
+<div id="page-article" class="page">
+<div class="topbar">
+<div class="wrap">
+<span class="logo" onclick="app.goPage('home')">← Anasayfaya</span>
+<nav>
+<a id="prev-art" onclick="app.prevArticle()" style="color:var(--accent-deep)">← Önceki</a>
+<a id="next-art" onclick="app.nextArticle()" style="color:var(--accent-deep)">Sonraki →</a>
+</nav>
+<span id="art-counter" style="color:var(--muted);font-size:12px"></span>
+</div>
+</div>
+
+<div class="wrap">
+<div class="article-page">
+<a class="back-btn" onclick="app.goPage('archive')">← Yazılara Dön</a>
+<div class="article-header">
+<div class="article-meta"><b id="art-cat">Kategori</b> · <span id="art-pages">Sayfa</span></div>
+<h1 class="article-title" id="art-title">Yazı Başlığı</h1>
+<div style="font-family:var(--util);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);margin-top:18px" id="art-author">Yazar</div>
+</div>
+<article class="article-content" id="art-content">
+<p>Yazı metni burada gösterilecek.</p>
+</article>
+</div>
+</div>
+
+</div>
+
+</body>
+
+<script>
+const DATA_URL = 'data/master.json';
+
+const app = {
+  data: null,
+  currentPage: 'home',
+  currentCilt: null,
+  currentSayi: null,
+  currentArticle: null,
+
+  async init() {
+    try {
+      const res = await fetch(DATA_URL);
+      this.data = await res.json();
+      this.render();
+    } catch(e) {
+      console.error('Data load error:', e);
+      document.body.innerHTML = '<p style="padding:40px">Veri yüklenemedi. master.json dosyasının varlığını kontrol edin.</p>';
+    }
+  },
+
+  render() {
+    this.populateIssueSelect();
+    this.loadIssue();
+  },
+
+  populateIssueSelect() {
+    const select = document.getElementById('issue-select');
+    select.innerHTML = '<option value="">Son Yayınlar</option>';
+    
+    for (let cilt of this.data.ciltler) {
+      const optgroup = document.createElement('optgroup');
+      optgroup.label = `Cilt ${cilt.cilt_no} (${cilt.yil})`;
+      
+      for (let sayi of cilt.sayilar) {
+        const opt = document.createElement('option');
+        opt.value = `${cilt.cilt_no}-${sayi.sayi_no}`;
+        opt.textContent = `Sayı ${sayi.sayi_no} (${sayi.ay})`;
+        optgroup.appendChild(opt);
+      }
+      select.appendChild(optgroup);
+    }
+  },
+
+  loadIssue() {
+    const val = document.getElementById('issue-select').value;
+    
+    if (!val) {
+      // Son yayınlar - Cilt 1 Sayı 1
+      this.currentCilt = this.data.ciltler[0];
+      this.currentSayi = this.currentCilt.sayilar[0];
+    } else {
+      const [cilt, sayi] = val.split('-').map(Number);
+      this.currentCilt = this.data.ciltler.find(c => c.cilt_no === cilt);
+      this.currentSayi = this.currentCilt.sayilar.find(s => s.sayi_no === sayi);
+    }
+    
+    this.renderGrid();
+  },
+
+  renderGrid() {
+    if (!this.currentSayi || !this.currentSayi.yazılar) {
+      document.getElementById('grid-container').innerHTML = '<p style="grid-column:1/-1;padding:40px;text-align:center;color:var(--muted)">Bu sayı henüz doldurulmamış.</p>';
+      return;
+    }
+
+    const html = this.currentSayi.yazılar.map((art, idx) => `
+      <article class="card" onclick="app.viewArticle(${idx})">
+        <span class="ct">${art.kategori}</span>
+        <h4>${art.baslik}</h4>
+        <span class="by">${art.yazar} · s. ${art.sayfalar}</span>
+      </article>
+    `).join('');
+    
+    document.getElementById('grid-container').innerHTML = html;
+  },
+
+  filterIssues(cilt) {
+    const archive = document.getElementById('archive-grid');
+    let issues = [];
+    
+    if (cilt === 'all') {
+      for (let c of this.data.ciltler) {
+        issues.push(...c.sayilar.map(s => ({...s, cilt: c.cilt_no})));
+      }
+    } else {
+      const c = this.data.ciltler.find(x => x.cilt_no === cilt);
+      if (c) issues = c.sayilar.map(s => ({...s, cilt}));
+    }
+    
+    archive.innerHTML = issues.map((s, idx) => `
+      <article class="card" onclick="app.goToSayi(${s.cilt}, ${s.sayi_no})">
+        <h4>Sayı ${s.sayi_no}</h4>
+        <span class="by">${s.ay} ${s.yil} · ${s.yazılar.length} yazı</span>
+      </article>
+    `).join('');
+  },
+
+  goToSayi(cilt, sayi) {
+    document.getElementById('issue-select').value = `${cilt}-${sayi}`;
+    this.loadIssue();
+    this.goPage('home');
+  },
+
+  viewArticle(idx) {
+    this.currentArticle = {
+      cilt: this.currentCilt.cilt_no,
+      sayi: this.currentSayi.sayi_no,
+      articleIdx: idx,
+      article: this.currentSayi.yazılar[idx]
+    };
+    this.renderArticle();
+    this.goPage('article');
+  },
+
+  renderArticle() {
+    const a = this.currentArticle.article;
+    document.getElementById('art-title').textContent = a.baslik;
+    document.getElementById('art-author').textContent = a.yazar;
+    document.getElementById('art-cat').textContent = a.kategori;
+    document.getElementById('art-pages').textContent = `s. ${a.sayfalar}`;
+    document.getElementById('art-content').innerHTML = `<p><span class="dropcap">${a.baslik.charAt(0)}</span>${a.baslik.slice(1)}</p><p>Makale metni PDF'den çıkartılacak.</p>`;
+    document.getElementById('art-counter').textContent = `${this.currentArticle.articleIdx + 1} / ${this.currentSayi.yazılar.length}`;
+    
+    const idx = this.currentArticle.articleIdx;
+    document.getElementById('prev-art').style.opacity = idx === 0 ? '0.3' : '1';
+    document.getElementById('next-art').style.opacity = idx === this.currentSayi.yazılar.length - 1 ? '0.3' : '1';
+  },
+
+  prevArticle() {
+    if (this.currentArticle.articleIdx > 0) {
+      this.viewArticle(this.currentArticle.articleIdx - 1);
+    }
+  },
+
+  nextArticle() {
+    if (this.currentArticle.articleIdx < this.currentSayi.yazılar.length - 1) {
+      this.viewArticle(this.currentArticle.articleIdx + 1);
+    }
+  },
+
+  goPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(`page-${name}`).classList.add('active');
+    
+    if (name === 'archive') {
+      this.filterIssues('all');
+    }
+    
+    window.scrollTo(0, 0);
+  }
+};
+
+app.init();
+</script>
+
+</html>

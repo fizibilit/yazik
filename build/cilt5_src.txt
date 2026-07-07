@@ -1,0 +1,37 @@
+1|2|Amin Maalouf|Afrikalı Leo|diger
+1|3|Bilge Çipe|Pazartesi|siir
+1|4|İzzet Koçak|Tanrıyı Güldürmek|oyku
+1|5|Muhammed Hüküm|Hasbihal|siir
+1|6|Ahmet Gönenç|Ekşi Mutluluk|deneme
+1|8|Tarkan Başer|Cambaz|siir
+1|9|Murat Koçak|Karpuz Dilimi|siir
+1|10|Oğuz Düzgün|Dua Et Ey Çocuk|siir
+1|11|Yasin Çakır|Sızım|siir
+1|12|İbrahim Daştan|Alacağı Var|siir
+1|13|Semih Güney|Zaman Gündüz Gece|siir
+1|14|Yunus İde|Renk Kartelası|siir
+1|15|Cemal Karsavran|Muştudur Üçüncü Bahar|siir
+1|16|M. Fatih Kanter|Dönüş|siir
+1|17|Mustafa Doğan Karaçoşkun|Üşüyorum|siir
+1|18|Zeynep Bıçakçıoğlu|Hayat Caddesi|siir
+1|19|Mülayim Meddah|Karabaş Terapide|deneme
+1|27|Asaf Halet Çelebi|Asuri Şiiri|diger
+2|2|Turgut Uyar|Sevda Üstüne|diger
+2|3|Murat Serdar Çakıroğlu|Parabol|siir
+2|4|Ahmet Gönenç|Gri Kasketli Adam: Göç Zamanı|oyku
+2|6|Murat Koçak|Barışmışlar|oyku
+2|7|Tarkan Başer|Da|siir
+2|8|Mülayim Meddah|Bu Nasıl Hoca Yahut Sisifos Sendromu|deneme
+2|16|Ali Kestane|Bu Gece|siir
+2|17|Mustafa Ali Öztürk|Melekler Ters Çalım Yemez|deneme
+2|20|Cemal Karsavran|Seninle Ben Aşk Olurum|siir
+2|21|Cahit Sıtkı Tarancı|Desem Ki|diger
+3|2|Ahmet Rasim|Şehir Mektupları|diger
+3|3|Tarkan Başer|En Son Seni Düşündüm|siir
+3|4|Ali Genç|Çift Kişilik Monolog|oyku
+3|6|Esen Korkmaz|Günce|siir
+3|8|Ahmet Gönenç|Gri Kasketli Adam: Kedi, Çocuk ve Chopin|oyku
+3|10|Memik Kömekçi|Kirman-ı Nefis|siir
+3|11|Ali Kestane|Söğüt Gölgesi|siir
+3|12|Cemal Karsavran|Şiirlerle|siir
+3|13|Karacaoğlan|Nuh'un Gemisine Bühtan Edenler|diger

@@ -1,0 +1,199 @@
+# sayi | pdf_page | yazar | baslik | tur
+# tur: oyku, siir, deneme, ceviri, diger
+# Cilt 2 - 2021 (Sayı 13-24)
+# NOT: sayi-03 (Mart) PDF'i 56 sayfa içeriyor; sayfa 37-56 Nisan tekrarı, sayfa_sayisi=36 kullan
+1|3|Ahmet Koçak|Bağlantısal Bütünsellik|siir
+1|4|Âlem Adam MY|Gazete|deneme
+1|6|Ali Genç|Telmihi|oyku
+1|8|Ali Yağız|Kaplumbağalar|oyku
+1|9|Bilge Çipe|Schrödinger'in Kedisi|siir
+1|10|D. Hazel Göktaş|Köy Hikâyeleri 8/"Yazık"|oyku
+1|12|Davut Güner|Berat Ettim|deneme
+1|14|Emel Bulut|Şehirden İndim Köye|deneme
+1|16|Fatma Betül Özbudak|Yağmura Yakalanmış Hızır|siir
+1|17|Hikmet Haşlak|Yarın Bu Saatlerde|siir
+1|18|Hızır İrfan Önder|Yalnızlaşıyorum!|siir
+1|19|İdris Afgan|Bir Şeyler Var|siir
+1|20|İzzet Koçak|Toza Gömülen|oyku
+1|23|Kadir Polat|Jakoben Şapkalı Adam|oyku
+1|24|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar|deneme
+1|29|Muhammed Hüküm|Bir Aslan ve Bir Yolun Kuzuya Söylediği|siir
+1|30|Murat Koçak|O Türkü…|siir
+1|31|Samet Dindar|Ses|siir
+1|32|Tarkan Başer|Dul Karı Pazarı|oyku
+1|36|Yasemin Akça|Göynümün Sevdiği: Göynük ve Taraklı'da Zaman|deneme
+1|42|Yusuf Selahattin Yıldız|O|oyku
+1|44|Şeyh Galib|Gazel|diger
+2|3|Yusuf Selahattin Yıldız|Feryâd-ı Efkâr|siir
+2|4|Tarkan Başer|Zamane Çocuğu|siir
+2|5|Mustafa Ali Öztürk|Gulca'da Katliam|oyku
+2|8|Murat Soyak|Kışa Dair|siir
+2|10|Murat Koçak|Ayakkabı Boyacısı|oyku
+2|12|Muhammed Hüküm|Bir Şiir Yaz|siir
+2|13|Metah Çakko|İyilik|oyku
+2|16|Kadir Polat|Garajdaki Derviş|oyku
+2|17|İbrahim Halil Yandak|Cemre Düştü|siir
+2|19|Hikmet Haşlak|Uğurlama Töreni|siir
+2|20|Fatma Betül Özbudak|Kozam Olan Hüzün|siir
+2|21|Emel Bulut|İmkânsızlığın Damıttığı Umut|deneme
+2|23|Davut Güler|Halam|siir
+2|24|D. Hazel Göktaş|Köy Hikâyeleri 9/Döne Dönmedi|oyku
+2|26|Cemal Karsavran|Hıh|siir
+2|27|Bariş Silik|Garip Yazılar/Senin Kafan Karışık, Adımlarımı Takip Et!|oyku
+2|29|Mecit Bahadır Koşar|Tekrar|siir
+2|31|Âlem Adam MY|Kohler'in Kavalı|oyku
+2|35|Cahit Irgat|İthaf|diger
+2|36|Ali Genç|Müneccim|siir
+3|3|Âlem Adam MY|Pandemik Süreçte Bir Müdür Muavininin Bir Günü|oyku
+3|5|Ali Genç|Koşma|siir
+3|6|Bilge Çipe|Makus Bir İsmin Ötesine Geçmek Ya da Her Neyse|siir
+3|7|Davut Güner|Bir Rüzgârla|siir
+3|8|Fatma Betül Özbudak|Kuantum İman|siir
+3|9|Fatma Deniz Balık|Kiraz Çiçeği|oyku
+3|14|Hikmet Haşlak|Görüş Mesafesi|siir
+3|15|Hızır İrfan Önder|Düşlerime Kar Yağıyor!|siir
+3|16|İbrahim Daştan|Yetmiş Dört Kare|siir
+3|17|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar|deneme
+3|20|Fatih Kanter|Ben/De|siir
+3|21|Metah Çakko|Kısmet|oyku
+3|23|Muhammed Hüküm|Haikular|siir
+3|24|Murat Koçak|Kırk Yaşındayım…|deneme
+3|25|Mustafa Ali Öztürk|Vazgeçiş|oyku
+3|28|Pelin Yıldırım|Yağmur|oyku
+3|30|Tarkan Başer|Önce O Ağzındaki Sakızı Çıkar|siir
+3|31|Yasemin Akça|Önde Zeytin Ağaçları Arkasında İznik Var|deneme
+3|35|Yusuf Selahattin Yıldız|Bağban|siir
+3|36|Erzurumlu Emrah|Gönül Gurbet Ele Varma|diger
+4|3|Ahmet Koçak|Bulamadım|siir
+4|4|Bariş Silik|Garip Yazılar/Selam Ver İrecep|oyku
+4|8|Ali Genç|Susma Durağı|siir
+4|9|D. Hazel Göktaş|Köy Hikâyeleri 10/"Gelincikler Açmıyor Artık"|oyku
+4|11|Hikmet Haşlak|İnanç Günleri|siir
+4|12|Adil Başoğul|Sanatın Doğumu|siir
+4|14|Emel Bulut|Her Yeni Bir Hikâye Yepyeni Bir Yaşam|oyku
+4|17|Fatma Betül Özbudak|Ramazanname|siir
+4|18|Fatih Bektaş|Ben Rıhtım ve Yasemen Çiçekleri|siir
+4|19|Hızır İrfan Önder|Ölsem de Olur!|siir
+4|20|İbrahim Daştan|Siyah Boşluk|siir
+4|21|Fatih Kanter|Neyse ki|siir
+4|22|Muhammet Baran Aslan|Eski Hindistan'da Adalet|oyku
+4|25|Muhammed Hüküm|Kar Neşidesi|siir
+4|26|Mustafa Ali Öztürk|1930 Yılı Akşam Gazetesinin Bazı Sayılarında Yer Alan Edebî Yazılar|deneme
+4|29|Yusuf Selahattin Yıldız|Özgürlük|siir
+4|30|Zer Dali|Ferman…|siir
+4|31|Karacaoğlan|Koşma|diger
+5|3|Tarkan Başer|Size Anlattım mı Bilmem|siir
+5|4|Bariş Silik|Masa da Masaymış Ha|oyku
+5|7|Ali Genç|Beş Yıl Önce On Yıl Sonra|oyku
+5|9|Tengir Kara|Yeni Sap|siir
+5|10|Âlem Adam MY|Kahrolsun Kahrolasıcalar|oyku
+5|15|Fatih Bektaş|Defineye Malik Çocuklar|siir
+5|16|İbrahim Daştan|Kaybolan İzler|siir
+5|17|Mecit Bahadır Koşar|Bayram o Bayram Ola|oyku
+5|20|Hızır İrfan Önder|Heba Olup Gitme!|siir
+5|21|Fatma Betül Özbudak|Geveze Suskunluklar|siir
+5|22|Yusuf Selahattin Yıldız|Çelimsiz Adam ve Koca Ceset|oyku
+5|24|Merve Usta|Kader Çuvalı|siir
+5|25|Emel Bulut|Suya Düşünce Değil, Suda Kalınca Boğulursunuz|deneme
+5|27|Erzurumlu Emrah|Ne Feryâd Erdersin|diger
+6|3|Tarkan Başer|İhtiyar Kurdun Münacatı|siir
+6|5|D. Hazel Göktaş|Köy Hikâyeleri 11/Tek Boynuzlu Yılan|oyku
+6|7|Murat Koçak|Ne Güzeldik…|siir
+6|9|Yasemin Akça|Çocukluğunu Arıyor İnsan, Bir Minderin İçine Gizlenmiş Dahi Olsa|deneme
+6|11|Fatma Betül Özbudak|Sanı|siir
+6|12|Âlem Adam MY|Nerede O Eski Öğretmenler|deneme
+6|14|Adil Başoğul|İşte Hayat Bu|siir
+6|16|Bariş Silik|Garip Yazılar/Çaylar Çataldan!|oyku
+6|18|Emrullah Burgu|Yağmur|siir
+6|20|Mustafa Ali Öztürk|Bir Bilim Adamının Romanı Üzerine|deneme
+6|22|Hızır İrfan Önder|Biri Çıkıp Sevsin Beni!|siir
+6|23|Cemal Karsavran|Ayrılan Sevdalar Bakışlarda|siir
+6|24|Ali Taş|Ben Ali'nin Delisiyim Ali Kimin Velisi?|siir
+6|25|Zekiye Akbulut|Kümes|oyku
+6|28|Adonis|Anlam Ormanlarında Gez İçin Rehber|ceviri
+7|3|Ali Genç|Üstüme Su Dök|oyku
+7|5|Tarkan Başer|Hafi|siir
+7|6|Kadir Polat|Garajdaki Derviş 2|oyku
+7|8|Metah Çakko|Afaksız Şafak|oyku
+7|9|Bariş Silik|Garip Yazılar/Okumasaydı…|oyku
+7|17|Muhammed Hüküm|Gökçe Şiir|siir
+7|18|Fatih Bektaş|Hisseme Düşen|siir
+7|19|İdris Afgan|Deneme|deneme
+7|20|Fatma Betül Özbudak|Prangantartika|siir
+7|21|İbrahim Daştan|Bitmeyen|siir
+7|22|Adil Başoğul|Acımı Yazdım|siir
+7|24|Cemal Karsavran|Aşka Vurur Tüm Beden|siir
+7|25|Fâik Kumru|Mey Taksîmi|siir
+7|26|Emel Bulut|Gönlümü Nasıl Köle Ettin Bunca Kusura|deneme
+7|28|Bilge Çipe|Bugün|siir
+8|3|Adil Başoğul|Bir Filozof|siir
+8|4|Ahmet Koçak|Kalmamış|siir
+8|5|Âlem Adam MY|İmge ve Bunalım|deneme
+8|7|Cemal Karsavran|Cemalimi Göreyim|siir
+8|8|Emel Bulut|Masal|deneme
+8|10|Esin Kıroğlu|Mesafe|oyku
+8|13|Fatma Betül Özbudak|Dikenleri Kanatmak|siir
+8|14|Hızır İrfan Önder|Zor|siir
+8|15|İbrahim Daştan|Keskin Kenar|siir
+8|16|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar|deneme
+8|21|Murat Koçak|Sana Geldim…|siir
+8|23|Tarkan Başer|Allah Sizi İnandırsın|siir
+9|3|Ali Genç|Bir Acı Rüzgar Esince|oyku
+9|4|Bilge Çipe|Sarı Bir Defterin Dedikleri|siir
+9|5|Murat Koçak|Her Yol Sevdaya Gider|oyku
+9|8|İbrahim Daştan|Ayrılık|siir
+9|9|Adelya Malgir|Uyanışın Eşsiz Tarifi|deneme
+9|11|Muhammed Hüküm|Gülme, Şiir Yaz|siir
+9|12|Tarkan Başer|Şerh|siir
+9|13|Muhammed Yasin Çakır|Köşebaşı|oyku
+9|17|Rıdvan Yıldız|Bir Diyeceğim Yok Susmaktan Başka|siir
+9|18|Emel Bulut|Birazdan Dönerim|deneme
+9|20|Esin Kıroğlu|Balık Gibi|siir
+9|21|Fatma Betül Özbudak|Leyli Meccaniden Bozma Mecnuni Leyla|siir
+9|22|Bariş Silik|Garip Yazılar/Haşmet Peynirkesen|oyku
+9|24|Adil Başoğul|Dertli Derviş|siir
+9|25|Mehmet Karakaş|Kavalın Sesi|oyku
+10|3|Ali Genç|Parasız Yatılı Günlüğünden / 14 Numara|oyku
+10|5|Tarkan Başer|Aptali Anlamak|siir
+10|6|D. Hazel Göktaş|Köy Hikâyeleri/Hım Hım Böcekleri|oyku
+10|7|Muhammed Hüküm|Kastrato|siir
+10|8|Bariş Silik|Garip Yazılar/Bedava Çalışanlara Teşekkürler|oyku
+10|10|Rıdvan Yıldız|K'ye|siir
+10|11|Ali Uçar|Kaza|oyku
+10|14|Esin Kıroğlu|Eylül Uykusu|siir
+10|15|Murat Koçak|İnsanın Mutluluk Arayışı…|deneme
+10|16|İbrahim Daştan|Haritanın En Kırmızı Yeri|siir
+10|17|Emel Bulut|Kürkçü Dükkânı|siir
+10|19|Adil Başoğul|Jara'nın Elleri|siir
+10|20|Mehmet Karakaş|Ehlicefa|oyku
+10|22|Yusuf Selahattin Yıldız|Bende|siir
+10|23|Züleyha Özen|Kâğıt Kesici|oyku
+10|24|Fatma Betül Özbudak|Begonvil|siir
+10|25|Seda Ertit|Sevgi|oyku
+10|28|Mansur|Renkler Güneşten Çıktılar|diger
+11|3|Tarkan Başer|Söz|siir
+11|4|Mecit Bahadır Koşar|Kasım|oyku
+11|5|İbrahim Daştan|Düşme Endişesi|siir
+11|6|Bariş Silik|Garip Yazılar/Senin Olayın Ne|oyku
+11|9|Ahmet Koçak|Bir Varmış Bir Düşmüş|siir
+11|10|Âlem Adam MY|Ahir Zaman Destanı|siir
+11|11|Rıdvan Yıldız|Kav|siir
+11|12|Fatma Betül Özbudak|Uzak|siir
+11|13|Adil Başoğul|Nâr Çiçekleri|siir
+11|14|Vedat Karakaş|Garip|siir
+11|15|Cemal Karsavran|Öksüz Kalmış Duygulara İnat|siir
+11|16|Mustafa Ali Öztürk|Şair Mustafa Ören: "Şiir Yazanın Değil, İhtiyacı Olanınındır."|deneme
+12|3|Fatih Kanter|Vaktidir|siir
+12|4|Muhammed Hüküm|Medeni|siir
+12|5|Hasan Fahri Tan|Hazîn/e|siir
+12|6|M. Ahmet Özyapıcı|Yurdum İnsanına Mektuplar|deneme
+12|8|Bilge Çipe|Dal, Gölge ve Denizin Söylediği|siir
+12|9|Tarkan Başer|Su, Kadın ve Derviş|siir
+12|10|Emel Bulut|Duman Altı|deneme
+12|11|Rıdvan Yıldız|Hub|siir
+12|12|İbrahim Daştan|İlk Yenilgi|siir
+12|13|Mustafa Ali Öztürk|İsmail Aybey ile Mülakat|deneme
+12|16|Adil Başoğul|Ne Olur Sorma|siir
+12|17|Hızır İrfan Önder|Vazgeçtim|siir
+12|19|Âlem Adam MY|Fatih'in Çakma Fedaisi Sarı Murat|oyku
+12|23|Karacaoğlan|Nasihat|diger
